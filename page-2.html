@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Urolog Project - О враче</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script src="js/main.js" defer></script>
+  <script src="js/header-top.js" defer></script>
+</head>
+<body id="top" class="doctor-page-body">
+  <header class="site-header">
+    <div class="topbar__reveal" id="topbar-reveal" aria-hidden="true">
+      <div class="topbar__reveal-inner">
+        <div class="topbar__reveal-viewport">
+          <a class="topbar__reveal-item topbar__reveal-item--phone" href="tel:+420253253252" data-reveal-content="phone">
+            + 420 253 253 252
+          </a>
+
+          <div class="topbar__reveal-item topbar__reveal-item--address" data-reveal-content="address">
+            <div class="topbar__reveal-address-layout">
+              <div class="topbar__reveal-address-text">
+                Střešovická 1968/21,<br>
+                Praha 6, 162 00
+              </div>
+
+              <div class="topbar__reveal-map">
+                <iframe
+                  title="Карта клиники Urologie Střešovice"
+                  src="https://www.google.com/maps?q=St%C5%99e%C5%A1ovick%C3%A1%201968%2F21%2C%20Praha%206&output=embed"
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="topbar">
+      <div class="container">
+        <div class="topbar__inner">
+          <div class="topbar__left">
+            <button
+              class="topbar__menu-btn"
+              type="button"
+              aria-label="Открыть меню"
+              aria-controls="mobile-menu"
+              aria-expanded="false"
+            >
+              <img src="assets/icons/icon-menu.svg" alt="" width="24" height="24">
+            </button>
+            <a class="topbar__brand" href="index.html" aria-label="На главную">
+              <img class="topbar__logo-icon" src="assets/icons/icon-logo-full-light.svg" alt="" width="171" height="52">
+            </a>
+          </div>
+
+          <div class="topbar__right">
+            <a class="topbar__item topbar__contact-desktop" href="tel:+420253253252" aria-label="Позвонить + 420 253 253 252">
+              <img class="topbar__icon" src="assets/icons/icon-phone.svg" alt="" width="28" height="28">
+              <span>+ 420 253 253 252</span>
+            </a>
+
+            <div class="topbar__item topbar__contact-desktop" aria-label="Адрес">
+              <img class="topbar__icon" src="assets/icons/icon-geo.svg" alt="" width="28" height="28">
+              <span>Střešovická 1968/21, Praha 6, 162 00</span>
+            </div>
+
+            <button
+              class="topbar__contact-trigger topbar__contact-trigger--mobile"
+              type="button"
+              aria-label="Показать телефон"
+              aria-expanded="false"
+              aria-controls="topbar-reveal"
+              data-reveal-trigger="phone"
+            >
+              <img class="topbar__icon" src="assets/icons/icon-phone.svg" alt="" width="28" height="28">
+            </button>
+
+            <button
+              class="topbar__contact-trigger topbar__contact-trigger--mobile"
+              type="button"
+              aria-label="Показать адрес"
+              aria-expanded="false"
+              aria-controls="topbar-reveal"
+              data-reveal-trigger="address"
+            >
+              <img class="topbar__icon" src="assets/icons/icon-geo.svg" alt="" width="28" height="28">
+            </button>
+
+            <div class="topbar__lang-dropdown" data-lang-dropdown>
+              <button
+                class="topbar__lang"
+                type="button"
+                aria-label="Выбрать язык"
+                aria-haspopup="listbox"
+                aria-expanded="false"
+                aria-controls="lang-menu"
+                data-lang-trigger
+              >
+                <span class="topbar__lang-current">Ru</span>
+                <img
+                  class="topbar__lang-chevron"
+                  src="assets/icons/icon-arrow-down.svg"
+                  alt=""
+                  aria-hidden="true"
+                  width="9"
+                  height="6"
+                >
+              </button>
+
+              <ul class="topbar__lang-menu list-reset" id="lang-menu" role="menu" hidden data-lang-menu>
+                <li role="none">
+                  <a class="topbar__lang-option" role="menuitem" href="/en/" lang="en">En</a>
+                </li>
+                <li role="none">
+                  <a class="topbar__lang-option" role="menuitem" href="/cz/" lang="cs">Cz</a>
+                </li>
+                <li role="none">
+                  <a class="topbar__lang-option" role="menuitem" href="/ua/" lang="uk">Ua</a>
+                </li>
+              </ul>
+            </div>
+
+            <a class="topbar__item topbar__item--icon" href="#" aria-label="Instagram">
+              <img class="topbar__icon topbar__icon--instagram" src="assets/icons/icon-instagram.svg" alt="" width="24" height="24">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="doctor-page">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Хлебные крошки">
+        <ol class="breadcrumbs__list list-reset">
+          <li class="breadcrumbs__item">
+            <a class="breadcrumbs__link" href="index.html">Главная</a>
+          </li>
+          <li class="breadcrumbs__item" aria-current="page">О враче</li>
+        </ol>
+      </nav>
+
+      <section class="doctor-page__profile" aria-labelledby="doctor-profile-title">
+        <h1 class="visually-hidden" id="doctor-profile-title">О враче</h1>
+
+        <article class="doctor-card doctor-card--profile" aria-label="Карточка врача">
+          <div class="doctor-card__media edge-decor--all">
+            <img src="assets/img/doctor-photo.png" alt="MUDr. Jiří Kočárek Ph.D., MBA" width="458" height="458">
+          </div>
+
+          <div class="doctor-card__content">
+            <header class="doctor-card__header">
+              <div class="doctor-card__header-text">
+                <h2 class="doctor-card__name">MUDr. Jiří Kočárek Ph.D., MBA</h2>
+                <p class="doctor-card__degree">Доктор медицинских наук</p>
+              </div>
+              <a class="doctor-card__more-icon" href="#doctor-cv" aria-label="Перейти к резюме врача">
+                <img src="assets/icons/arrow-right.svg" alt="" width="24" height="24">
+              </a>
+            </header>
+
+            <div class="doctor-card__details">
+              <p class="doctor-card__specialty">Урология</p>
+
+              <div class="doctor-card__row">
+                <img class="doctor-card__row-icon" src="assets/icons/doctor-phone.svg" alt="" width="16" height="16">
+                <a class="doctor-card__contact" href="tel:+420253253252">+420 253 253 252</a>
+              </div>
+
+              <div class="doctor-card__row">
+                <img class="doctor-card__row-icon" src="assets/icons/doctor-geo.svg" alt="" width="16" height="16">
+                <p class="doctor-card__city">Прага</p>
+              </div>
+            </div>
+
+            <div class="doctor-card__actions">
+              <a class="btn btn--primary" href="#">Записаться на прием</a>
+            </div>
+          </div>
+        </article>
+
+        <a class="btn btn--primary doctor-page__cta" href="#">Записаться на прием</a>
+      </section>
+
+      <section class="cv" id="doctor-cv" aria-labelledby="doctor-cv-title">
+        <h2 class="visually-hidden" id="doctor-cv-title">Резюме врача</h2>
+
+        <article class="cv__section">
+          <h3 class="cv__title">Образование:</h3>
+          <div class="cv__content">
+            <p class="cv__item">1992 г. — Карлов университет, медицинский факультет (MD).</p>
+            <p class="cv__item">2002 – 2007: Медицинский факультет при министерстве обороны, степень доктора медицинских наук (Ph.D.).</p>
+          </div>
+        </article>
+
+        <article class="cv__section cv__section--collapsible">
+          <h3 class="cv__title">Опыт работы:</h3>
+          <div class="cv__content" id="cv-content-1">
+            <p class="cv__item">1995 – 2013: Центральный военный госпиталь Прага.</p>
+            <p class="cv__item">2013 – 2023: Главврач урологического отделения больницы Kladno.</p>
+            <p class="cv__item">2020 – настоящее время: Главврач урологического отделения клиники MEDICA MENTE.</p>
+          </div>
+          <button class="cv__toggle" type="button" aria-expanded="false" aria-controls="cv-content-1">Читать далее</button>
+        </article>
+
+        <article class="cv__section cv__section--collapsible">
+          <h3 class="cv__title">Последипломное образование:</h3>
+          <div class="cv__content" id="cv-content-2">
+            <p class="cv__item">1992 - 1995: Центральный военный госпиталь Праги (CMHP) – аттестация по специальности терапевт.</p>
+            <p class="cv__item">1995 - 1997: Кафедра урологии КМХП – Аттестация первой степени по урологии.</p>
+            <p class="cv__item">1997 - 2002: Кафедра урологии КМХП – Аттестация второй степени по урологии.</p>
+            <p class="cv__item">2002 – настоящее время: Кафедра урологии CMHP – старший консультант.</p>
+            <p class="cv__item">2003 г. – Европейская лапароскопическая хирургия – Страсбургский университет, Франция.</p>
+            <p class="cv__item">2005 г. – Школа хирургии Париж, Франция – роботизированная хирургия, сертификат 1-й степени.</p>
+            <p class="cv__item">Университетская больница Хакенсак, Нью-Джерси, США – роботизированная хирургия, сертификат 2-й степени.</p>
+          </div>
+          <button class="cv__toggle" type="button" aria-expanded="false" aria-controls="cv-content-2">Читать далее</button>
+        </article>
+
+        <article class="cv__section cv__section--collapsible">
+          <h3 class="cv__title">Членство в профессиональных организациях:</h3>
+          <div class="cv__content" id="cv-content-3">
+            <p class="cv__item">Чешская медицинская палата (ČLK).</p>
+            <p class="cv__item">Чешское сообщество урологов (ČUS).</p>
+            <p class="cv__item">Европейская ассоциация урологов (EAU).</p>
+            <p class="cv__item">Международное сообщество андрологов (ISA).</p>
+            <p class="cv__item">Чешское сообщество роботизированной хирургии (CSRCH).</p>
+          </div>
+          <button class="cv__toggle" type="button" aria-expanded="false" aria-controls="cv-content-3">Читать далее</button>
+        </article>
+
+        <article class="cv__section cv__section--collapsible">
+          <h3 class="cv__title">Преподавательская деятельность:</h3>
+          <div class="cv__content" id="cv-content-4">
+            <p class="cv__item">Лекции на урологических конгрессах.</p>
+            <p class="cv__item">Семинары для магистрантов Урологической клиники 3-го медицинского факультета Карлова университета в Праге – с 2006 г.</p>
+            <p class="cv__item">Обучении студентов урологической клиники 1-го медицинского факультета Карлова университета в Праге – с 2013 г.</p>
+          </div>
+          <button class="cv__toggle" type="button" aria-expanded="false" aria-controls="cv-content-4">Читать далее</button>
+        </article>
+
+        <article class="cv__section">
+          <h3 class="cv__title">Профессиональная специализация:</h3>
+          <div class="cv__content">
+            <p class="cv__item">Лапароскопическая и роботизированная хирургия.</p>
+          </div>
+        </article>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__top">
+        <section class="footer__column footer__column--contacts" aria-labelledby="footer-contacts-title" id="contacts">
+          <h3 class="footer__title" id="footer-contacts-title">Контакты</h3>
+
+          <div class="footer__contacts-group">
+            <p class="footer__label">Телефон:</p>
+            <p class="footer__value">
+              <a href="tel:+420253253252">+ 420 253 253 252</a>
+            </p>
+          </div>
+
+          <div class="footer__contacts-group footer__contacts-group--line">
+            <p class="footer__label">Электронная почта:</p>
+            <p class="footer__value">
+              <a href="mailto:info@urology.cz">info@urology.cz</a>
+            </p>
+          </div>
+
+          <div class="footer__contacts-group footer__contacts-group--line">
+            <p class="footer__label">Часы работы:</p>
+
+            <dl class="footer__schedule">
+              <div class="footer__schedule-row">
+                <dt>пн-пт</dt>
+                <dd>08:00-17:00</dd>
+              </div>
+              <div class="footer__schedule-row">
+                <dt>сб-вс</dt>
+                <dd>выходной</dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="footer__contacts-group">
+            <p class="footer__label">Адрес:</p>
+            <address class="footer__address">
+              ul. Střešovická 1968/21, Praha 6, Břevnov, PSČ: 162 00
+            </address>
+          </div>
+
+          <div class="footer__map-wrap">
+            <iframe
+              title="Карта клиники Urologie Střešovice"
+              src="https://www.google.com/maps?q=St%C5%99e%C5%A1ovick%C3%A1%201968%2F21%2C%20Praha%206&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </section>
+
+        <nav class="footer__column footer__column--links" aria-labelledby="footer-links-title">
+          <h3 class="footer__title" id="footer-links-title">Быстрые ссылки</h3>
+          <ul class="footer__links list-reset">
+            <li><a href="page-2.html">О враче</a></li>
+            <li><a href="index.html#services">Услуги</a></li>
+            <li><a href="index.html#about">О клинике</a></li>
+            <li><a href="index.html#why">Почему выбирают нас</a></li>
+            <li><a href="#">Отзывы</a></li>
+            <li><a href="#" target="_blank" rel="noopener noreferrer">Мы в Instagram</a></li>
+            <li><a href="#health">Полезные рекомендации</a></li>
+            <li><a href="#contacts">Контакты</a></li>
+            <li>
+              <a href="#" target="_blank" rel="noopener noreferrer">
+                <img class="footer__instagram-icon" src="assets/icons/icon-instagram-color.svg" alt="" width="24" height="24">
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <section class="footer__column footer__column--blog" aria-labelledby="footer-blog-title" id="health">
+          <h3 class="footer__title" id="footer-blog-title">Полезные рекомендации</h3>
+
+          <div class="footer__articles">
+            <a class="footer__article" href="#">
+              <span class="footer__article-title">Как подготовиться перед первой консультацией?</span>
+              <span class="footer__article-text">Совет от практикующего врача, как подготовится к приему у уролога...</span>
+              <img src="assets/img/blog-photo-1.png" alt="Статья о профилактике урологических заболеваний" width="241" height="118">
+            </a>
+
+            <a class="footer__article" href="#">
+              <span class="footer__article-title">3 привычки для здоровья мочеполовой системы</span>
+              <span class="footer__article-text">Небольшие действия, которые легко встроить в повседневную жизнь...</span>
+              <img src="assets/img/blog-photo-2.png" alt="Статья о современном подходе к диагностике" width="241" height="118">
+            </a>
+          </div>
+        </section>
+      </div>
+
+      <div class="footer__bottom">
+        <a class="btn btn--outline footer__to-top" href="#top">
+          <span>Наверх</span>
+          <img src="assets/icons/arrow-top.svg" alt="" width="24" height="24">
+        </a>
+
+        <img class="footer__logo" src="assets/icons/icon-logo-full.svg" alt="Urologie Střešovice" width="122" height="38">
+
+        <a class="footer__legal" href="#" target="_blank" rel="noopener noreferrer">
+          <img src="assets/icons/icon-info.svg" alt="" width="12" height="12" aria-hidden="true">
+          <span>Vnitřní a provozní řád kliniky Urologie Střešovice</span>
+        </a>
+
+        <p class="footer__copyright">
+          Copyright © 2026 <span class="footer__copyright-underline">klinika Urologie Střešovice</span>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="floating-cta" type="button" aria-label="Записаться" data-cta-action="book">
+    <img
+      class="floating-cta__bg"
+      src="assets/img/fixed_btn.png"
+      alt=""
+      width="88"
+      height="88"
+      aria-hidden="true"
+    >
+    <span class="floating-cta__label" data-i18n="cta-book">Записаться</span>
+  </button>
+
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <button class="mobile-menu__overlay" type="button" aria-label="Закрыть меню"></button>
+
+    <aside class="mobile-menu__panel" role="dialog" aria-modal="true" aria-label="Мобильное меню">
+      <div class="mobile-menu__header">
+        <img
+          class="mobile-menu__logo"
+          src="assets/icons/icon-logo-full.svg"
+          alt="Urologie Střešovice"
+          width="122"
+          height="38"
+        >
+        <button class="mobile-menu__close" type="button" aria-label="Закрыть меню">
+          <svg class="mobile-menu__close-icon" width="32" height="43" viewBox="0 0 32 43" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M8 30.4706L24.9706 13.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M8 13.4706L24.9706 30.4411" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <nav class="mobile-menu__nav" aria-label="Навигация по сайту">
+        <ul class="mobile-menu__nav-list list-reset">
+          <li><a class="mobile-menu__nav-link" href="page-2.html">О враче</a></li>
+          <li><a class="mobile-menu__nav-link" href="index.html#services">Услуги</a></li>
+          <li><a class="mobile-menu__nav-link" href="index.html#about">О клинике</a></li>
+          <li><a class="mobile-menu__nav-link" href="index.html#why">Почему выбирают нас</a></li>
+          <li><a class="mobile-menu__nav-link" href="#">Отзывы</a></li>
+          <li><a class="mobile-menu__nav-link" href="#" target="_blank" rel="noopener noreferrer">Мы в Instagram</a></li>
+          <li><a class="mobile-menu__nav-link" href="#health">Полезные рекомендации</a></li>
+          <li><a class="mobile-menu__nav-link" href="#contacts">Контакты</a></li>
+        </ul>
+      </nav>
+
+      <div class="mobile-menu__contacts" aria-label="Контактная информация">
+        <div class="mobile-menu__contact-row">
+          <span class="mobile-menu__contact-label">Телефон:</span>
+          <a class="mobile-menu__contact-value" href="tel:+420253253252">+ 420 253 253 252</a>
+        </div>
+        <div class="mobile-menu__contact-row line-bottom">
+          <span class="mobile-menu__contact-label">Электронная почта:</span>
+          <a class="mobile-menu__contact-value" href="mailto:info@urology.cz">info@urology.cz</a>
+        </div>
+        <div class="mobile-menu__contact-row line-bottom">
+          <span class="mobile-menu__contact-label">Часы работы:</span>
+          <dl class="mobile-menu__schedule">
+            <div class="mobile-menu__schedule-row">
+              <dt>пн-пт</dt>
+              <dd>08:00-17:00</dd>
+            </div>
+            <div class="mobile-menu__schedule-row">
+              <dt>сб-вс</dt>
+              <dd>выходной</dd>
+            </div>
+          </dl>
+        </div>
+        <div class="mobile-menu__contact-row">
+          <span class="mobile-menu__contact-label">Адрес:</span>
+          <address class="mobile-menu__address">ul. Střešovická 1968/21, Praha 6, Břevnov, PSČ: 162 00</address>
+        </div>
+        <div class="mobile-menu__map-wrap">
+          <iframe
+            title="Карта клиники Urologie Střešovice в мобильном меню"
+            src="https://www.google.com/maps?q=St%C5%99e%C5%A1ovick%C3%A1%201968%2F21%2C%20Praha%206&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+
+      <div class="mobile-menu__social">
+        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <img src="assets/icons/icon-instagram-color.svg" alt="" width="32" height="32">
+        </a>
+      </div>
+    </aside>
+  </div>
+</body>
+</html>
