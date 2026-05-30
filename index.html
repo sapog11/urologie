@@ -1,12 +1,13 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="ru">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MenCare clinic - Главная</title>
+  <title>MenCare clinic — Клиника мужского здоровья в Праге</title>
+  <meta name="description" content="Частная урологическая клиника в Праге. Опытный уролог MUDr. Jiří Kočárek Ph.D. — более 30 лет практики, пионер роботической хирургии в Чехии. Приём на русском языке.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/responsive.css">
@@ -22,14 +23,11 @@
           <a class="topbar__reveal-item topbar__reveal-item--phone" href="tel:+420776540503" data-reveal-content="phone">
             +420 776 540 503
           </a>
-    
           <div class="topbar__reveal-item topbar__reveal-item--address" data-reveal-content="address">
             <div class="topbar__reveal-address-layout">
               <div class="topbar__reveal-address-text">
-                Řehořová 32,<br>
-                Praha 3
+                Řehořová 32,<br>Praha 3
               </div>
-          
               <div class="topbar__reveal-map">
                 <iframe
                   title="Карта клиники MenCare clinic"
@@ -44,21 +42,16 @@
         </div>
       </div>
     </div>
+
     <div class="topbar">
       <div class="container">
         <div class="topbar__inner">
           <div class="topbar__left">
-            <button
-              class="topbar__menu-btn"
-              type="button"
-              aria-label="Открыть меню"
-              aria-controls="mobile-menu"
-              aria-expanded="false"
-            >
+            <button class="topbar__menu-btn" type="button" aria-label="Открыть меню" aria-controls="mobile-menu" aria-expanded="false">
               <img src="assets/icons/icon-menu.svg" alt="" width="24" height="24">
             </button>
             <a class="topbar__brand" href="index.html" aria-label="На главную">
-              <img class="topbar__logo-icon" src="assets/icons/icon-logo-full-light.svg" alt="" width="171" height="52">
+              <img class="topbar__logo-icon" src="assets/icons/icon-logo-full-light.svg" alt="MenCare clinic" width="171" height="52">
             </a>
           </div>
 
@@ -67,71 +60,27 @@
               <img class="topbar__icon" src="assets/icons/icon-phone.svg" alt="" width="28" height="28">
               <span>+420 776 540 503</span>
             </a>
-
             <div class="topbar__item topbar__contact-desktop" aria-label="Адрес">
               <img class="topbar__icon" src="assets/icons/icon-geo.svg" alt="" width="28" height="28">
               <span>Řehořová 32, Praha 3</span>
             </div>
-
-            <button
-              class="topbar__contact-trigger topbar__contact-trigger--mobile"
-              type="button"
-              aria-label="Показать телефон"
-              aria-expanded="false"
-              aria-controls="topbar-reveal"
-              data-reveal-trigger="phone"
-            >
+            <button class="topbar__contact-trigger topbar__contact-trigger--mobile" type="button" aria-label="Показать телефон" aria-expanded="false" aria-controls="topbar-reveal" data-reveal-trigger="phone">
               <img class="topbar__icon" src="assets/icons/icon-phone.svg" alt="" width="28" height="28">
             </button>
-
-            <button
-              class="topbar__contact-trigger topbar__contact-trigger--mobile"
-              type="button"
-              aria-label="Показать адрес"
-              aria-expanded="false"
-              aria-controls="topbar-reveal"
-              data-reveal-trigger="address"
-            >
+            <button class="topbar__contact-trigger topbar__contact-trigger--mobile" type="button" aria-label="Показать адрес" aria-expanded="false" aria-controls="topbar-reveal" data-reveal-trigger="address">
               <img class="topbar__icon" src="assets/icons/icon-geo.svg" alt="" width="28" height="28">
             </button>
-
             <div class="topbar__lang-dropdown" data-lang-dropdown>
-              <button
-                class="topbar__lang"
-                type="button"
-                aria-label="Выбрать язык"
-                aria-haspopup="listbox"
-                aria-expanded="false"
-                aria-controls="lang-menu"
-                data-lang-trigger
-              >
+              <button class="topbar__lang" type="button" aria-label="Выбрать язык" aria-haspopup="listbox" aria-expanded="false" aria-controls="lang-menu" data-lang-trigger>
                 <span class="topbar__lang-current">Ru</span>
-                <img
-                  class="topbar__lang-chevron"
-                  src="assets/icons/icon-arrow-down.svg"
-                  alt=""
-                  aria-hidden="true"
-                  width="9"
-                  height="6"
-                >
+                <img class="topbar__lang-chevron" src="assets/icons/icon-arrow-down.svg" alt="" aria-hidden="true" width="9" height="6">
               </button>
-            
               <ul class="topbar__lang-menu list-reset" id="lang-menu" role="menu" hidden data-lang-menu>
-                <li role="none">
-                  <a class="topbar__lang-option" role="menuitem" href="/en/" lang="en">En</a>
-                </li>
-                <li role="none">
-                  <a class="topbar__lang-option" role="menuitem" href="/cz/" lang="cs">Cz</a>
-                </li>
-                <li role="none">
-                  <a class="topbar__lang-option" role="menuitem" href="/ua/" lang="uk">Ua</a>
-                </li>
+                <li role="none"><a class="topbar__lang-option" role="menuitem" href="en/" lang="en">En</a></li>
+                <li role="none"><a class="topbar__lang-option" role="menuitem" href="cz/" lang="cs">Cz</a></li>
+                <li role="none"><a class="topbar__lang-option" role="menuitem" href="ua/" lang="uk">Ua</a></li>
               </ul>
             </div>
-
-            <a class="topbar__item topbar__item--icon" href="#" aria-label="Instagram">
-              <img class="topbar__icon topbar__icon--instagram" src="assets/icons/icon-instagram.svg" alt="" width="24" height="24">
-            </a>
           </div>
         </div>
       </div>
@@ -140,43 +89,35 @@
 
     <section class="hero" id="hero">
       <div class="container hero__content">
-        <nav class="hero-nav" aria-label="Навигация по секциям главной">
+        <nav class="hero-nav" aria-label="Навигация по секциям">
           <ul class="hero-nav__list list-reset">
             <li><a class="hero-nav__link" href="#doctor">О враче</a></li>
             <li><a class="hero-nav__link" href="#services">Услуги</a></li>
-            <li><a class="hero-nav__link" href="#about" aria-current="page">О клинике</a></li>
-            <li><a class="hero-nav__link" href="#why">Почему выбирают нас</a></li>
-            <li><a class="hero-nav__link" href="#">Отзывы</a></li>
-            <li><a class="hero-nav__link" href="#">Полезные рекомендации</a></li>
+            <li><a class="hero-nav__link" href="#about">О клинике</a></li>
+            <li><a class="hero-nav__link" href="#faq">FAQ</a></li>
             <li><a class="hero-nav__link" href="#contacts">Контакты</a></li>
           </ul>
         </nav>
 
-        <img
-          class="hero__mobile-logo"
-          src="assets/icons/icon-logo-full-light.svg"
-          alt="MenCare clinic"
-          width="171"
-          height="52"
-        >
-    
-        <h1 class="hero__title">
-          Современная урологическая клиника по лечению и диагностике в Праге
-        </h1>
+        <img class="hero__mobile-logo" src="assets/icons/icon-logo-full-light.svg" alt="MenCare clinic" width="171" height="52">
+
+        <h1 class="hero__title">Клиника мужского здоровья в Праге</h1>
+        <p class="hero__subtitle">Частная урология · Конфиденциально · Приём на русском языке</p>
       </div>
       <img class="hero__decoration" src="assets/icons/hero-decoration.svg" alt="">
     </section>
-</div>
+  </div>
 
   <main id="main" class="site-main">
+
     <section class="doctor" id="doctor">
       <div class="container">
         <div class="doctor__mobile-actions">
-          <a class="btn btn--primary doctor__mobile-btn" href="#">Записаться на приём</a>
+          <a class="btn btn--primary doctor__mobile-btn" href="tel:+420776540503">Записаться на приём</a>
           <a class="btn btn--outline doctor__mobile-btn" href="#services">Услуги</a>
         </div>
 
-        <h2 class="section-title doctor__title">Под ведением опытного специалиста</h2>
+        <h2 class="section-title doctor__title">Опытный специалист международного уровня</h2>
 
         <article class="doctor-card" aria-label="Карточка врача">
           <div class="doctor-card__media edge-decor--all">
@@ -186,34 +127,37 @@
           <div class="doctor-card__content">
             <header class="doctor-card__header">
               <div class="doctor-card__header-text">
+                <span class="doctor-card__exp-badge">30+ лет в урологии</span>
                 <h3 class="doctor-card__name">MUDr. Jiří Kočárek Ph.D.</h3>
-                <p class="doctor-card__degree">Доктор медицинских наук</p>
+                <p class="doctor-card__degree">Уролог · Доктор медицинских наук · Хирург</p>
               </div>
-              <a class="doctor-card__more-icon" href="#" aria-label="Детальнее о враче">
-                <img src="assets/icons/arrow-right.svg" alt="" width="24" height="24">
-              </a>
             </header>
 
             <div class="doctor-card__details">
-              <p class="doctor-card__specialty">Урология</p>
-            
+              <div class="doctor-card__bio">
+                <p>Один из ведущих урологических хирургов Чехии и Европы. Специализация — лапароскопическая и роботическая хирургия урологического тракта.</p>
+                <ul class="doctor-card__facts">
+                  <li>🏆 Один из первых в Чехии внедрил роботическую хирургию — при Военном госпитале Праги (ÚVN)</li>
+                  <li>🎓 Сертификаты роботической хирургии: Школа хирургии Парижа &amp; Университетский госпиталь Hackensack, New Jersey, США</li>
+                  <li>📚 Обучает хирургов роботическим операциям в международных центрах</li>
+                  <li>🏛️ Преподаватель Карлова университета — 1-й и 3-й медицинский факультет (с 2006 г.)</li>
+                  <li>🌍 Член Европейской ассоциации урологов (EAU) с 1997 г.</li>
+                  <li>🔬 Член Международного общества андрологии (ISA) и Чешского общества роботической хирургии</li>
+                </ul>
+              </div>
+
               <div class="doctor-card__row">
                 <img class="doctor-card__row-icon" src="assets/icons/doctor-phone.svg" alt="" width="16" height="16">
                 <a class="doctor-card__contact" href="tel:+420776540503">+420 776 540 503</a>
               </div>
-            
               <div class="doctor-card__row">
                 <img class="doctor-card__row-icon" src="assets/icons/doctor-geo.svg" alt="" width="16" height="16">
-                <p class="doctor-card__city">Прага</p>
+                <p class="doctor-card__city">Praha 3, Řehořová 32</p>
               </div>
             </div>
 
             <div class="doctor-card__actions">
-              <a class="btn btn--primary" href="#">Записаться на приём</a>
-              <a class="btn btn--outline doctor-card__more" href="#">
-                Детальнее о враче
-                <img class="doctor-card__arrow" src="assets/icons/arrow-right.svg" alt="" width="24" height="24">
-              </a>
+              <a class="btn btn--primary" href="tel:+420776540503">Записаться на приём</a>
             </div>
           </div>
         </article>
@@ -222,41 +166,32 @@
 
     <section class="services" id="services">
       <div class="container">
-        <h2 class="section-title services__title">Услуги</h2>
+        <h2 class="section-title services__title">Услуги и цены</h2>
+
+        <div class="services__note">
+          Клиника работает исключительно с частными пациентами. Государственные страховки не принимаются.
+          При наличии коммерческой страховки вы можете самостоятельно запросить компенсацию у своей страховой компании.
+          Приём — <strong>только по предварительной записи</strong>.
+        </div>
 
         <div class="services__grid">
           <ul class="services__list list-reset">
-            <li class="services__item">
-              <a class="services__link" href="#">
-                <span>Обследование урологом</span>
-                <img src="assets/icons/icon-arrow-right.svg" alt="" width="24" height="24">
-              </a>
+            <li class="services__item services__item--featured">
+              <div class="services__link">
+                <div>
+                  <span class="services__main-label">Консультация уролога + УЗИ</span>
+                  <span class="services__main-sub">Частные обследования · По предварительной записи</span>
+                </div>
+                <span class="services__price">2 500 Kč</span>
+              </div>
             </li>
             <li class="services__item">
-              <a class="services__link" href="#">
-                <span>УЗИ</span>
-                <img src="assets/icons/icon-arrow-right.svg" alt="" width="24" height="24">
-              </a>
-            </li>
-            <li class="services__item">
-              <a class="services__link" href="#">
-                <span>Организация операций</span>
-                <img src="assets/icons/icon-arrow-right.svg" alt="" width="24" height="24">
-              </a>
-            </li>
-          </ul>
-
-          <ul class="services__list list-reset">
-            <li class="services__item">
-              <a class="services__link" href="#">
-                <span>Френулопластика</span>
-                <img src="assets/icons/icon-arrow-right.svg" alt="" width="24" height="24">
-              </a>
-            </li>
-            <li class="services__item">
-              <a class="services__link" href="#">
-                <span>Анализ на STD</span>
-                <img src="assets/icons/icon-arrow-right.svg" alt="" width="24" height="24">
+              <a class="services__link" href="mailto:jekazorich@gmail.com">
+                <div>
+                  <span>Урологические операции</span>
+                  <span class="services__item-sub">Больница Кладно · Все виды вмешательств</span>
+                </div>
+                <span class="services__price-from">от 15 000 Kč</span>
               </a>
             </li>
             <li class="services__item">
@@ -266,6 +201,33 @@
               </a>
             </li>
           </ul>
+
+          <ul class="services__list list-reset">
+            <li class="services__item">
+              <a class="services__link" href="#">
+                <span>Анализы на ИППП / STD</span>
+                <img src="assets/icons/icon-arrow-right.svg" alt="" width="24" height="24">
+              </a>
+            </li>
+            <li class="services__item">
+              <a class="services__link" href="#">
+                <span>Лапароскопические вмешательства</span>
+                <img src="assets/icons/icon-arrow-right.svg" alt="" width="24" height="24">
+              </a>
+            </li>
+            <li class="services__item">
+              <a class="services__link" href="#">
+                <span>Роботическая хирургия</span>
+                <img src="assets/icons/icon-arrow-right.svg" alt="" width="24" height="24">
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="services__surgery-note">
+          Для организации операции в больнице — напишите запрос на
+          <a href="mailto:jekazorich@gmail.com">jekazorich@gmail.com</a>.
+          Мы расскажем о необходимых шагах, запишем на обследование и поможем со всеми организационными вопросами в больнице и после госпитализации.
         </div>
       </div>
     </section>
@@ -279,13 +241,10 @@
             <div class="splide__track">
               <ul class="splide__list">
                 <li class="splide__slide">
-                  <img src="assets/img/hero-bg.png" alt="Интерьер клиники, слайд 1" width="827" height="500">
+                  <img src="assets/img/hero-bg.png" alt="Клиника MenCare" width="827" height="500">
                 </li>
                 <li class="splide__slide">
-                  <img src="assets/img/about-clinic-slider.jpg" alt="Интерьер клиники, слайд 2" width="827" height="500">
-                </li>
-                <li class="splide__slide">
-                  <img src="assets/img/about-clinic-slider.jpg" alt="Интерьер клиники, слайд 3" width="827" height="500">
+                  <img src="assets/img/service-photo.png" alt="Кабинет врача" width="827" height="500">
                 </li>
               </ul>
             </div>
@@ -293,9 +252,14 @@
 
           <div class="about__content">
             <p>
-              Урологический кабинет в Праге — это современное медицинское пространство, ориентированное на комфорт пациента и высокий уровень профессиональной помощи. 
-              Кабинет оснащён актуальным диагностическим оборудованием и соответствует европейским стандартам качества и безопасности. Приём ведётся в спокойной, конфиденциальной обстановке, 
-              что позволяет пациентам чувствовать себя уверенно и комфортно на каждом этапе обращения.
+              <strong>MenCare clinic</strong> — частная урологическая клиника в Праге, специализирующаяся на мужском здоровье.
+            </p>
+            <p style="margin-top:16px;">
+              Если вы ищете опытного уролога в Праге — вы по адресу. Клиника принимает мужчин любого возраста с любыми урологическими запросами: от плановых обследований до сложных хирургических случаев.
+            </p>
+            <p style="margin-top:16px;">
+              Приём ведётся в спокойной, конфиденциальной обстановке. Без очередей. По предварительной записи.
+              Доктор принимает на <strong>русском, чешском и английском</strong> языках.
             </p>
           </div>
         </div>
@@ -304,101 +268,153 @@
 
     <section class="why" id="why">
       <div class="container">
-        <h2 class="section-title why__title">Почему выбирают нас</h2>
+        <h2 class="section-title why__title">Почему выбирают MenCare</h2>
 
         <div class="why__panel">
           <ul class="why__list list-reset">
             <li class="why__item">
               <img class="why__icon" src="assets/icons/benefit-icon-1.svg" alt="" width="48" height="48">
-              <p class="why__text">Предоставление услуг на русском, чешском и английском языках</p>
+              <p class="why__text">Приём на русском, чешском и английском языках — без языкового барьера</p>
             </li>
             <li class="why__item">
               <img class="why__icon" src="assets/icons/benefit-icon-2.svg" alt="" width="48" height="48">
-              <p class="why__text">Тщательный контроль и профилактика заболеваний</p>
+              <p class="why__text">Полная конфиденциальность и строгая врачебная тайна</p>
             </li>
             <li class="why__item">
               <img class="why__icon" src="assets/icons/benefit-icon-3.svg" alt="" width="48" height="48">
-              <p class="why__text">Комфортные условия для пациентов во время пребывания в клинике</p>
+              <p class="why__text">Более 30 лет практики — один из ведущих урологов Чехии и Европы</p>
             </li>
             <li class="why__item">
               <img class="why__icon" src="assets/icons/benefit-icon-4.svg" alt="" width="48" height="48">
-              <p class="why__text">Удобное расположение клиники рядом с метро Palmovka</p>
+              <p class="why__text">Приём строго по записи — без очередей, точно в назначенное время</p>
             </li>
           </ul>
         </div>
       </div>
     </section>
 
-    <section class="health">
+    <section class="faq" id="faq">
       <div class="container">
-        <div class="health__card">
-          <div class="health__photo">
-            <img src="assets/img/doctor-photo-2.png" alt="Врач консультирует пациента" width="569" height="524">
-          </div>
+        <h2 class="section-title faq__title">Часто задаваемые вопросы</h2>
 
-          <div class="health__content">
-            <h2 class="health__title">Про важное о здоровье</h2>
+        <ul class="faq__list list-reset">
 
-            <img
-              class="health__preview"
-              src="assets/img/about-health.png"
-              alt="Подборка материалов о здоровье"
-              width="783"
-              height="283"
-            >
+          <li class="faq__item">
+            <button class="faq__question" type="button">
+              Для кого эта клиника?
+              <img class="faq__icon" src="assets/icons/icon-arrow-down-gray.svg" alt="" width="24" height="24">
+            </button>
+            <div class="faq__answer">
+              <div class="faq__answer-inner">
+                MenCare clinic принимает мужчин любого возраста с урологическими вопросами: профилактические осмотры, диагностика, лечение, подготовка к операции. Клиника работает исключительно в формате частных консультаций.
+              </div>
+            </div>
+          </li>
 
-            <a class="btn health__btn" href="#">
-              <span>Узнать больше о здоровье</span>
-              <img src="assets/icons/arrow-right-white.svg" alt="" width="24" height="24">
-            </a>
-          </div>
-        </div>
+          <li class="faq__item">
+            <button class="faq__question" type="button">
+              Принимаете ли вы по страховке?
+              <img class="faq__icon" src="assets/icons/icon-arrow-down-gray.svg" alt="" width="24" height="24">
+            </button>
+            <div class="faq__answer">
+              <div class="faq__answer-inner">
+                Клиника работает только с частными пациентами. Государственные страховки Чешской Республики <strong>не принимаются</strong>. Если у вас есть коммерческая страховка, вы можете самостоятельно обратиться в свою страховую компанию за компенсацией расходов.
+              </div>
+            </div>
+          </li>
+
+          <li class="faq__item">
+            <button class="faq__question" type="button">
+              Сколько стоит консультация?
+              <img class="faq__icon" src="assets/icons/icon-arrow-down-gray.svg" alt="" width="24" height="24">
+            </button>
+            <div class="faq__answer">
+              <div class="faq__answer-inner">
+                Основная услуга — консультация уролога + УЗИ: <strong>2 500 Kč</strong>.<br>
+                Урологические операции в больнице Кладно — от <strong>15 000 Kč</strong> в зависимости от типа и сложности вмешательства.
+              </div>
+            </div>
+          </li>
+
+          <li class="faq__item">
+            <button class="faq__question" type="button">
+              Как записаться на приём?
+              <img class="faq__icon" src="assets/icons/icon-arrow-down-gray.svg" alt="" width="24" height="24">
+            </button>
+            <div class="faq__answer">
+              <div class="faq__answer-inner">
+                Только по предварительной записи. Свяжитесь с нами:<br>
+                📞 <a href="tel:+420776540503">+420 776 540 503</a><br>
+                ✉️ <a href="mailto:jekazorich@gmail.com">jekazorich@gmail.com</a>
+              </div>
+            </div>
+          </li>
+
+          <li class="faq__item">
+            <button class="faq__question" type="button">
+              Можно ли организовать урологическую операцию?
+              <img class="faq__icon" src="assets/icons/icon-arrow-down-gray.svg" alt="" width="24" height="24">
+            </button>
+            <div class="faq__answer">
+              <div class="faq__answer-inner">
+                Да. Доктор проводит все виды урологических хирургических вмешательств при больнице г. Кладно. Напишите запрос на <a href="mailto:jekazorich@gmail.com">jekazorich@gmail.com</a> — мы расскажем о шагах, запишем на обследование и поможем со всеми организационными вопросами до и после госпитализации.
+              </div>
+            </div>
+          </li>
+
+          <li class="faq__item">
+            <button class="faq__question" type="button">
+              Это урологическая клиника?
+              <img class="faq__icon" src="assets/icons/icon-arrow-down-gray.svg" alt="" width="24" height="24">
+            </button>
+            <div class="faq__answer">
+              <div class="faq__answer-inner">
+                Да. MUDr. Jiří Kočárek Ph.D. — сертифицированный уролог с более чем 30-летним стажем. Если вы ищете уролога в Праге — вы по адресу. Доктор ведёт как консультативный, так и оперативный приём.
+              </div>
+            </div>
+          </li>
+
+        </ul>
       </div>
     </section>
+
   </main>
 
   <footer class="site-footer">
     <div class="container">
       <div class="footer__top">
-        <section class="footer__column footer__column--contacts" aria-labelledby="footer-contacts-title"  id="contacts">
+        <section class="footer__column footer__column--contacts" aria-labelledby="footer-contacts-title" id="contacts">
           <h3 class="footer__title" id="footer-contacts-title">Контакты</h3>
-        
+
           <div class="footer__contacts-group">
             <p class="footer__label">Телефон:</p>
-            <p class="footer__value">
-              <a href="tel:+420776540503">+420 776 540 503</a>
-            </p>
+            <p class="footer__value"><a href="tel:+420776540503">+420 776 540 503</a></p>
           </div>
-        
+
           <div class="footer__contacts-group footer__contacts-group--line">
             <p class="footer__label">Электронная почта:</p>
-            <p class="footer__value">
-              <a href="mailto:jekazorich@gmail.com">jekazorich@gmail.com</a>
-            </p>
+            <p class="footer__value"><a href="mailto:jekazorich@gmail.com">jekazorich@gmail.com</a></p>
           </div>
-        
+
           <div class="footer__contacts-group footer__contacts-group--line">
-            <p class="footer__label">Часы работы:</p>
-        
+            <p class="footer__label">Приём:</p>
             <dl class="footer__schedule">
               <div class="footer__schedule-row">
-                <dt>пн-пт</dt>
-                <dd>08:00-17:00</dd>
+                <dt>пн–пт</dt>
+                <dd>по предварительной записи</dd>
               </div>
               <div class="footer__schedule-row">
-                <dt>сб-вс</dt>
+                <dt>сб–вс</dt>
                 <dd>выходной</dd>
               </div>
             </dl>
           </div>
-        
+
           <div class="footer__contacts-group">
             <p class="footer__label">Адрес:</p>
-            <address class="footer__address">
-              ul. Řehořová 32, Praha 3
-            </address>
+            <address class="footer__address">ul. Řehořová 32, Praha 3</address>
           </div>
-        
+
           <div class="footer__map-wrap">
             <iframe
               title="Карта клиники MenCare clinic"
@@ -414,38 +430,26 @@
           <h3 class="footer__title" id="footer-links-title">Быстрые ссылки</h3>
           <ul class="footer__links list-reset">
             <li><a href="#doctor">О враче</a></li>
-            <li><a href="#services">Услуги</a></li>
+            <li><a href="#services">Услуги и цены</a></li>
             <li><a href="#about">О клинике</a></li>
-            <li><a href="#why">Почему выбирают нас</a></li>
-            <li><a href="#reviews">Отзывы</a></li>
-            <li><a href="#" target="_blank" rel="noopener noreferrer">Мы в Instagram</a></li>
-            <li><a href="#health">Полезные рекомендации</a></li>
+            <li><a href="#why">Почему мы</a></li>
+            <li><a href="#faq">FAQ</a></li>
             <li><a href="#contacts">Контакты</a></li>
-            <li>
-              <a href="#" target="_blank" rel="noopener noreferrer">
-                <img class="footer__instagram-icon" src="assets/icons/icon-instagram-color.svg" alt="" width="24" height="24">
-              </a>
-              <!-- TODO: Указать реальный URL Instagram -->
-              
-            </li>
+            <li><a href="mailto:jekazorich@gmail.com">Записаться по email</a></li>
           </ul>
         </nav>
 
-        <section class="footer__column footer__column--blog" aria-labelledby="footer-blog-title" id="health">
-          <h3 class="footer__title" id="footer-blog-title">Полезные рекомендации</h3>
-
+        <section class="footer__column footer__column--blog" aria-labelledby="footer-contact-cta-title">
+          <h3 class="footer__title" id="footer-contact-cta-title">Ждём вашего обращения</h3>
           <div class="footer__articles">
-            <a class="footer__article" href="#">
-              <span class="footer__article-title">Как подготовиться перед первой консультацией?</span>
-              <span class="footer__article-text">Совет от практикующего врача, как подготовится к приему у уролога...</span>
-              <img src="assets/img/blog-photo-1.png" alt="Статья о профилактике урологических заболеваний" width="241" height="118">
-            </a>
-
-            <a class="footer__article" href="#">
-              <span class="footer__article-title">3 привычки для здоровья мочеполовой системы</span>
-              <span class="footer__article-text">Небольшие действия, которые легко встроить в повседневную жизнь...</span>
-              <img src="assets/img/blog-photo-2.png" alt="Статья о современном подходе к диагностике" width="241" height="118">
-            </a>
+            <p style="font-size:16px;line-height:1.7;color:#808085;">
+              Частная урологическая клиника в Праге. Приём мужчин любого возраста. Консультации на русском, чешском и английском языках.
+            </p>
+            <p style="font-size:16px;line-height:1.7;color:#808085;margin-top:12px;">
+              Запись:<br>
+              📞 <a href="tel:+420776540503" style="color:#113f36;font-weight:600;">+420 776 540 503</a><br>
+              ✉️ <a href="mailto:jekazorich@gmail.com" style="color:#113f36;font-weight:600;">jekazorich@gmail.com</a>
+            </p>
           </div>
         </section>
       </div>
@@ -455,45 +459,28 @@
           <span>Наверх</span>
           <img src="assets/icons/arrow-top.svg" alt="" width="24" height="24">
         </a>
-      
         <img class="footer__logo" src="assets/icons/icon-logo-full.svg" alt="MenCare clinic" width="122" height="38">
-      
         <a class="footer__legal" href="#" target="_blank" rel="noopener noreferrer">
           <img src="assets/icons/icon-info.svg" alt="" width="12" height="12" aria-hidden="true">
           <span>Vnitřní a provozní řád kliniky MenCare clinic</span>
         </a>
-      
         <p class="footer__copyright">
-          Copyright © 2026 <span class="footer__copyright-underline">MenCare clinic</span>
+          Copyright &copy; 2026 <span class="footer__copyright-underline">MenCare clinic</span> &middot; mencare.cz
         </p>
       </div>
     </div>
   </footer>
+
   <button class="floating-cta" type="button" aria-label="Записаться" data-cta-action="book">
-    <img
-      class="floating-cta__bg"
-      src="assets/img/fixed_btn.png"
-      alt=""
-      width="88"
-      height="88"
-      aria-hidden="true"
-    >
-    <span class="floating-cta__label" data-i18n="cta-book">Записаться</span>
+    <img class="floating-cta__bg" src="assets/img/fixed_btn.png" alt="" width="88" height="88" aria-hidden="true">
+    <span class="floating-cta__label">Записаться</span>
   </button>
-  
 
   <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
     <button class="mobile-menu__overlay" type="button" aria-label="Закрыть меню"></button>
-
     <aside class="mobile-menu__panel" role="dialog" aria-modal="true" aria-label="Мобильное меню">
       <div class="mobile-menu__header">
-        <img
-          class="mobile-menu__logo"
-          src="assets/icons/icon-logo-full.svg"
-          alt="MenCare clinic"
-          width="122"
-          height="38"
-        >
+        <img class="mobile-menu__logo" src="assets/icons/icon-logo-full.svg" alt="MenCare clinic" width="122" height="38">
         <button class="mobile-menu__close" type="button" aria-label="Закрыть меню">
           <svg class="mobile-menu__close-icon" width="32" height="43" viewBox="0 0 32 43" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path d="M8 30.4706L24.9706 13.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -507,10 +494,7 @@
           <li><a class="mobile-menu__nav-link" href="#doctor">О враче</a></li>
           <li><a class="mobile-menu__nav-link" href="#services">Услуги</a></li>
           <li><a class="mobile-menu__nav-link" href="#about">О клинике</a></li>
-          <li><a class="mobile-menu__nav-link" href="#why">Почему выбирают нас</a></li>
-          <li><a class="mobile-menu__nav-link" href="#">Отзывы</a></li>
-          <li><a class="mobile-menu__nav-link" href="#" target="_blank" rel="noopener noreferrer">Мы в Instagram</a></li>
-          <li><a class="mobile-menu__nav-link" href="#health">Полезные рекомендации</a></li>
+          <li><a class="mobile-menu__nav-link" href="#faq">FAQ</a></li>
           <li><a class="mobile-menu__nav-link" href="#contacts">Контакты</a></li>
         </ul>
       </nav>
@@ -525,14 +509,14 @@
           <a class="mobile-menu__contact-value" href="mailto:jekazorich@gmail.com">jekazorich@gmail.com</a>
         </div>
         <div class="mobile-menu__contact-row line-bottom">
-          <span class="mobile-menu__contact-label">Часы работы:</span>
+          <span class="mobile-menu__contact-label">Приём:</span>
           <dl class="mobile-menu__schedule">
             <div class="mobile-menu__schedule-row">
-              <dt>пн-пт</dt>
-              <dd>08:00-17:00</dd>
+              <dt>пн–пт</dt>
+              <dd>по записи</dd>
             </div>
             <div class="mobile-menu__schedule-row">
-              <dt>сб-вс</dt>
+              <dt>сб–вс</dt>
               <dd>выходной</dd>
             </div>
           </dl>
@@ -551,14 +535,9 @@
           ></iframe>
         </div>
       </div>
-
-      <div class="mobile-menu__social">
-        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-          <img src="assets/icons/icon-instagram-color.svg" alt="" width="32" height="32">
-        </a>
-      </div>
     </aside>
   </div>
+
   <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
 </body>
 </html>

@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initLanguageDropdown();
   initSectionSpyNavigation();
   initDoctorCvAccordion();
+  initFaqAccordion();
 });
 
 function initMobileMenu() {
@@ -406,6 +407,24 @@ function initSectionSpyNavigation() {
 
   // Начальное состояние
   updateActiveSection();
+}
+
+function initFaqAccordion() {
+  const items = document.querySelectorAll('.faq__item');
+  if (!items.length) return;
+
+  items.forEach((item) => {
+    const btn = item.querySelector('.faq__question');
+    if (!btn) return;
+
+    btn.addEventListener('click', () => {
+      const isOpen = item.classList.contains('is-open');
+      // Close all
+      items.forEach((i) => i.classList.remove('is-open'));
+      // Toggle clicked
+      if (!isOpen) item.classList.add('is-open');
+    });
+  });
 }
 
 function initDoctorCvAccordion() {
