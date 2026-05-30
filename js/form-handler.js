@@ -46,6 +46,12 @@ const FormHandler = (() => {
       btn.addEventListener('click', openModal);
     });
 
+    // Floating CTA button
+    const floatingCta = document.querySelector('[data-cta-action="book"]');
+    if (floatingCta) {
+      floatingCta.addEventListener('click', openModal);
+    }
+
     // Form submission
     elements.form.addEventListener('submit', handleFormSubmit);
 
