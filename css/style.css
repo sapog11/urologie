@@ -2027,3 +2027,238 @@ body.menu-open {
   gap: 12px;
   margin-top: 28px;
 }
+
+/* ===== Appointment Modal ===== */
+.appointment-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 20px;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  z-index: 1000;
+}
+
+.appointment-modal::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+  animation: fadeIn 0.3s ease-out;
+}
+
+.appointment-modal__content {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: auto;
+  background: var(--c-white);
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.3s ease-out;
+  z-index: 1001;
+}
+
+.appointment-modal__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 24px 16px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.appointment-modal__header h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: var(--fw-bold);
+  color: var(--c-main);
+}
+
+.appointment-modal__close {
+  background: none;
+  border: none;
+  font-size: 32px;
+  color: #999;
+  cursor: pointer;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+
+.appointment-modal__close:hover {
+  color: var(--c-main);
+}
+
+/* ===== Appointment Form ===== */
+.appointment-form {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: var(--fw-semibold);
+  color: var(--c-main);
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--c-accent);
+  box-shadow: 0 0 0 3px rgba(120, 201, 185, 0.1);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.appointment-form__messages {
+  min-height: 24px;
+  margin: 8px 0;
+}
+
+.appointment-form__error {
+  padding: 12px;
+  background-color: #fee;
+  border-left: 4px solid #f44;
+  color: #c33;
+  font-size: 13px;
+  border-radius: 4px;
+  animation: slideDown 0.3s ease-out;
+}
+
+.appointment-form__success {
+  padding: 12px;
+  background-color: #efe;
+  border-left: 4px solid #4a4;
+  color: #3a3;
+  font-size: 13px;
+  border-radius: 4px;
+  animation: slideDown 0.3s ease-out;
+}
+
+.appointment-form__submit {
+  padding: 12px 24px;
+  margin-top: 8px;
+  background-color: var(--c-main);
+  color: var(--c-white);
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: var(--fw-semibold);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.appointment-form__submit:hover:not(:disabled) {
+  background-color: var(--c-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(17, 63, 54, 0.2);
+}
+
+.appointment-form__submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ===== Topbar Appointment Button ===== */
+.topbar__appointment-btn {
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: var(--fw-semibold);
+  display: none;
+}
+
+@media (min-width: 1200px) {
+  .topbar__appointment-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* ===== Footer Appointment Button ===== */
+.footer__appointment-btn {
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: var(--fw-semibold);
+  width: 100%;
+  text-align: center;
+  display: inline-block;
+}
+
+/* ===== Animations ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ===== Mobile Responsive ===== */
+@media (max-width: 767px) {
+  .appointment-modal__content {
+    max-width: calc(100% - 40px);
+  }
+
+  .appointment-modal__header h2 {
+    font-size: 18px;
+  }
+
+  .appointment-form {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+}

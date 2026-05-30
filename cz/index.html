@@ -42,6 +42,7 @@
             <div class="topbar__item topbar__contact-desktop"><img class="topbar__icon" src="../assets/icons/icon-geo.svg" alt="" width="28" height="28"><span>Řehořová 32, Praha 3</span></div>
             <button class="topbar__contact-trigger topbar__contact-trigger--mobile" type="button" aria-label="Zobrazit telefon" aria-expanded="false" aria-controls="topbar-reveal" data-reveal-trigger="phone"><img class="topbar__icon" src="../assets/icons/icon-phone.svg" alt="" width="28" height="28"></button>
             <button class="topbar__contact-trigger topbar__contact-trigger--mobile" type="button" aria-label="Zobrazit adresu" aria-expanded="false" aria-controls="topbar-reveal" data-reveal-trigger="address"><img class="topbar__icon" src="../assets/icons/icon-geo.svg" alt="" width="28" height="28"></button>
+            <button class="topbar__appointment-btn btn btn--primary" type="button" data-appointment-btn>Objednat se</button>
             <div class="topbar__lang-dropdown" data-lang-dropdown>
               <button class="topbar__lang" type="button" aria-label="Vybrat jazyk" aria-haspopup="listbox" aria-expanded="false" aria-controls="lang-menu" data-lang-trigger>
                 <span class="topbar__lang-current">Cz</span>
@@ -240,7 +241,7 @@
             <li><a href="#why">Proč my</a></li>
             <li><a href="#faq">FAQ</a></li>
             <li><a href="#contacts">Kontakt</a></li>
-            <li><a href="mailto:jekazorich@gmail.com">Objednat e-mailem</a></li>
+            <li><button class="footer__appointment-btn btn btn--primary" type="button" data-appointment-btn>Objednat se</button></li>
           </ul>
         </nav>
         <section class="footer__column footer__column--blog" aria-labelledby="footer-cta-cz">
@@ -293,5 +294,48 @@
     </aside>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/10.7.2/firebase-app-compat.min.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/10.7.2/firebase-functions-compat.min.js"></script>
+  <script src="../js/firebase-config.js" defer></script>
+  <script src="../js/form-handler.js" defer></script>
+
+  <dialog id="appointment-modal" class="appointment-modal" aria-labelledby="modal-title">
+    <div class="appointment-modal__content">
+      <div class="appointment-modal__header">
+        <h2 id="modal-title">Objednat se</h2>
+        <button class="appointment-modal__close" type="button" aria-label="Zavřít">×</button>
+      </div>
+
+      <form id="appointment-form" class="appointment-form">
+        <div class="form-group">
+          <label for="appointment-name">Jméno *</label>
+          <input type="text" id="appointment-name" name="name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="appointment-email">E-mail *</label>
+          <input type="email" id="appointment-email" name="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="appointment-phone">Telefon *</label>
+          <input type="tel" id="appointment-phone" name="phone" placeholder="+420 776 540 503" required>
+        </div>
+
+        <div class="form-group">
+          <label for="appointment-problem">Popis problému *</label>
+          <textarea id="appointment-problem" name="problem" rows="4" required></textarea>
+        </div>
+
+        <div class="appointment-form__messages">
+          <div id="appointment-error" class="appointment-form__error" hidden></div>
+          <div id="appointment-success" class="appointment-form__success" hidden></div>
+        </div>
+
+        <button type="submit" class="appointment-form__submit btn btn--primary">Odeslat</button>
+      </form>
+    </div>
+    <div class="appointment-modal__backdrop"></div>
+  </dialog>
 </body>
 </html>
