@@ -229,6 +229,11 @@ function initLanguageDropdown() {
     const option = e.target.closest('.topbar__lang-option');
     if (!option) return;
 
+    // Запоминаем ручной выбор — автоопределение языка на главной больше не сработает
+    try {
+      localStorage.setItem('mc_lang_chosen', '1');
+    } catch (err) {}
+
     closeMenu();
     // Не делаем preventDefault — ссылка должна сработать
   });

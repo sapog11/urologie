@@ -79,6 +79,7 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  scrollbar-gutter: stable;
 }
 
 h1,
@@ -182,7 +183,7 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 48px;
+  gap: 28px;
   height: 100%;
 }
 
@@ -209,7 +210,8 @@ button {
 .topbar__right {
   display: flex;
   align-items: center;
-  gap: 32px;
+  justify-content: flex-end;
+  gap: 24px;
   min-width: 0;
 }
 
@@ -221,12 +223,34 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: var(--fs-main-text);
+  font-size: 15px;
   font-weight: var(--fw-medium);
   line-height: var(--lh-tight);
   color: var(--c-white);
   text-decoration: none;
   white-space: nowrap;
+}
+
+.topbar__item .topbar__icon {
+  width: 22px;
+  height: 22px;
+}
+
+.topbar__item:hover {
+  opacity: 0.8;
+}
+
+/* На средних экранах прячем адрес, чтобы навигация помещалась в строку */
+@media (min-width: 1200px) and (max-width: 1439px) {
+  .topbar__contact-address {
+    display: none;
+  }
+}
+
+.topbar__contact-phone span,
+.topbar__contact-address span {
+  font-weight: var(--fw-medium);
+  font-size: 14px;
 }
 
 .topbar__item--icon {
@@ -322,6 +346,7 @@ button {
   position: absolute;
   top: 32px;
   left: 0;
+  z-index: 1100;
   width: 53px;
   padding: 0 0 8px;
   margin: 0;
@@ -652,7 +677,7 @@ body.menu-open {
   position: relative;
   background-image:
     linear-gradient(rgba(17, 63, 54, 0.75), rgba(17, 63, 54, 0.75)),
-    url("../assets/img/hero-bg.png");
+    url("../assets/img/hero-bg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 
@@ -661,7 +686,7 @@ body.menu-open {
 .hero {
   position: relative;
   min-height: 250px;
-  padding-top: 130px;
+  padding-top: 150px;
   padding-bottom: 64px;
 
   overflow: visible;
@@ -673,7 +698,8 @@ body.menu-open {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 64px;
+  --hero-gap: 64px;
+  gap: var(--hero-gap);
 }
 
 .hero__decoration {
@@ -700,32 +726,71 @@ body.menu-open {
   gap: 64px;
 }
 
+/* Навигация внутри топбара — одна строка с контактами и языком */
 .hero-nav {
-  width: 100%;
+  display: flex;
+  align-items: center;
+  flex: 0 1 auto;
+  min-width: 0;
 }
 
 .hero-nav__list {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 28px;
+  flex-wrap: nowrap;
+  gap: 22px;
+  margin: 0;
+  padding: 0;
 }
 
 .hero-nav__link {
-  font-size: var(--fs-navigation);
-  font-weight: var(--fw-medium);
+  font-size: 14px;
+  font-weight: 600;
   line-height: var(--lh-tight);
-  color: var(--c-white);
+  color: rgba(255, 255, 255, 0.88);
   text-decoration: none;
+  position: relative;
+  transition: color 0.25s ease;
+  padding: 4px 0;
+  white-space: nowrap;
+}
+
+.hero-nav__link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #78c9b9;
+  transition: width 0.25s ease;
 }
 
 .hero-nav__link:hover {
-  color: var(--c-accent);
+  color: #ffffff;
+}
+
+.hero-nav__link:hover::after {
+  width: 100%;
 }
 
 .hero-nav__link--active {
-  color: var(--c-accent);
+  color: #ffffff;
+}
+
+.hero-nav__link--active::after {
+  width: 100%;
+}
+
+@media (max-width: 1500px) {
+  .hero-nav__list {
+    gap: 16px;
+  }
+
+  .hero-nav__link {
+    font-size: 13px;
+  }
 }
 
 .hero__title {
@@ -739,7 +804,8 @@ body.menu-open {
 }
 
 .hero__subtitle {
-  margin-top: -40px;
+  /* держим 20px до заголовка независимо от текущего gap */
+  margin-top: calc(20px - var(--hero-gap, 64px));
   font-size: 18px;
   font-weight: var(--fw-regular);
   color: rgba(255,255,255,0.75);
@@ -772,20 +838,35 @@ body.menu-open {
   gap: 32px;
   max-width: 1194px;
   margin: 48px auto 0;
+  padding-bottom: 48px;
   border-radius: var(--r-xxl);
   background-color: var(--c-white);
+  border-bottom: 1px solid #e0e0e0;
 }
 
 .doctor-card__media {
   flex: 0 0 458px;
   position: relative;
+  width: 458px;
+  height: 458px;
+  border-radius: 20px;
+  overflow: hidden;
 }
 
 .doctor-card__media img {
-  width: 458px;
-  height: 458px;
-  border-radius: var(--r-md);
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  object-position: center center;
+}
+
+#doctor-jiri .doctor-card__media img {
+  object-fit: cover;
+  object-position: center center;
+}
+
+#doctor-kiryl .doctor-card__media img {
+  object-position: center center;
 }
 
 .doctor-card__media::after {
@@ -1514,12 +1595,13 @@ body.menu-open {
   font-size: 20px;
   font-weight: var(--fw-regular);
   line-height: var(--lh-relaxed);
-  color: var(--c-text-gray);
+  color: var(--c-main);
 }
 
 .footer__value a {
-  color: var(--c-text-gray);
+  color: var(--c-main);
   text-decoration: none;
+  font-weight: var(--fw-medium);
 }
 
 .footer__value a:hover {
@@ -1561,7 +1643,7 @@ body.menu-open {
   font-size: 20px;
   font-weight: var(--fw-regular);
   line-height: var(--lh-relaxed);
-  color: var(--c-text-gray);
+  color: var(--c-main);
 }
 
 .footer__map-wrap {
@@ -1694,6 +1776,9 @@ body.menu-open {
 }
 
 .floating-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: fixed;
   right: 16px;
   bottom: 100px;
@@ -1711,6 +1796,47 @@ body.menu-open {
   justify-content: center;
 
   transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+/* A static PNG parked in the corner reads as page furniture — the eye files it
+   next to the cookie banner and stops seeing it. A slow halo pushing outward
+   every few seconds restores the one thing it needs: looking live. Slow and
+   sparse on purpose; a fast pulse reads as an ad and gets ignored twice as
+   hard. */
+.floating-cta::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border-radius: 50%;
+  background: rgba(120, 201, 185, 0.45);
+  animation: floating-cta-halo 3.4s ease-out infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes floating-cta-halo {
+  0%        { transform: scale(0.9); opacity: 0.65; }
+  55%, 100% { transform: scale(1.45); opacity: 0; }
+}
+
+.floating-cta:hover {
+  transform: scale(1.07);
+  filter: drop-shadow(0 8px 22px rgba(17, 63, 54, 0.34));
+}
+
+.floating-cta:active { transform: scale(1.01); }
+
+.floating-cta:focus-visible {
+  outline: 3px solid var(--c-accent);
+  outline-offset: 4px;
+  border-radius: 50%;
+}
+
+/* Anyone who has asked their system to stop moving things gets a still button
+   that still looks pressable. */
+@media (prefers-reduced-motion: reduce) {
+  .floating-cta::before { animation: none; opacity: 0; }
+  .floating-cta:hover { transform: none; }
 }
 
 .floating-cta__bg {
@@ -2186,17 +2312,46 @@ body.menu-open {
 
 /* ===== Topbar Appointment Button ===== */
 .topbar__appointment-btn {
-  padding: 8px 16px;
-  font-size: 13px;
-  font-weight: var(--fw-semibold);
-  display: none;
+  display: none !important;
 }
 
-@media (min-width: 1200px) {
-  .topbar__appointment-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+/* ===== CTA-кнопка в информационном блоке ===== */
+.info-cta__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+  padding: 14px 34px;
+  border-radius: 48px;
+  background: linear-gradient(135deg, #78c9b9 0%, #54988b 100%);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 14px rgba(17, 63, 54, 0.22);
+}
+
+.info-cta__btn:hover {
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(17, 63, 54, 0.3);
+}
+
+.info-cta__phone {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .info-cta__btn {
+    width: 100%;
+    padding: 13px 18px;
+    font-size: 15px;
+    gap: 6px;
   }
 }
 
@@ -2260,5 +2415,669 @@ body.menu-open {
   .form-group input,
   .form-group textarea {
     font-size: 16px; /* Prevents zoom on iOS */
+  }
+}
+
+/* ===== Clinic Rules Modal ===== */
+.clinic-rules-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.clinic-rules-modal[aria-hidden="true"] {
+  display: none;
+}
+
+.clinic-rules-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.clinic-rules-content {
+  position: relative;
+  background: white;
+  border-radius: 24px;
+  max-width: 700px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 40px 40px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.clinic-rules-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: none;
+  border: none;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--c-main);
+  transition: color 0.2s, transform 0.2s;
+  padding: 0;
+  z-index: 10;
+}
+
+.clinic-rules-close:hover {
+  color: var(--c-accent);
+  transform: scale(1.1);
+}
+
+.clinic-rules-close svg {
+  width: 24px;
+  height: 24px;
+}
+
+.clinic-rules-title {
+  font-size: 28px;
+  font-weight: var(--fw-bold);
+  color: var(--c-main);
+  margin: 0 0 32px 0;
+  line-height: 1.3;
+}
+
+.clinic-rules-body {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.clinic-rules-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.clinic-rules-section h2 {
+  font-size: 18px;
+  font-weight: var(--fw-semibold);
+  color: var(--c-main);
+  margin: 0;
+}
+
+.clinic-rules-section p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--c-main-text);
+  margin: 0;
+}
+
+.clinic-rules-list {
+  margin: 0;
+  padding-left: 20px;
+  list-style: none;
+}
+
+.clinic-rules-list li {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--c-main-text);
+  margin-bottom: 8px;
+}
+
+.clinic-rules-footer-text p {
+  text-align: center;
+  color: var(--c-text-gray);
+  font-size: 12px;
+}
+
+.footer__legal {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  color: var(--c-white);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.footer__legal:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .clinic-rules-content {
+    padding: 32px 24px;
+  }
+
+  .clinic-rules-title {
+    font-size: 22px;
+  }
+
+  .clinic-rules-section h2 {
+    font-size: 16px;
+  }
+
+  .clinic-rules-section p {
+    font-size: 13px;
+  }
+
+}
+
+/* Appointment Modal */
+.appointment-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  display: flex;
+  /* flex-start + margin:auto on the content keeps it centred when it fits but
+     lets it scroll when the booking widget is taller than the viewport.
+     With align-items:center the overflowing top was unreachable. */
+  align-items: flex-start;
+  justify-content: center;
+  overflow-y: auto;
+  padding: 20px 0;
+}
+
+.appointment-modal[aria-hidden="true"] {
+  display: none;
+}
+
+.appointment-modal__backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+.appointment-modal__content {
+  position: relative;
+  background: transparent;
+  width: min(100%, 500px);
+  height: auto;
+}
+
+.appointment-modal__close {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--c-main);
+  transition: color 0.2s, transform 0.2s;
+  padding: 0;
+  z-index: 10000;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.appointment-modal__close:hover {
+  transform: scale(1.1);
+}
+
+.appointment-modal__content iframe {
+  display: block;
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  min-height: 700px;
+  border: none;
+  overflow-y: auto;
+}
+
+@media (max-width: 600px) {
+  .appointment-modal {
+    padding: 16px;
+  }
+
+  .appointment-modal__content {
+    width: 100%;
+    /* The mobile rule further up still caps this at calc(100% - 40px), left
+       over from when the modal had its own white card and padding around the
+       form. The content is the booking widget itself now, so those 40px came
+       straight out of the form: on a 375px phone it was rendering at 271px and
+       the service name and doctors' names were clipped mid-word. */
+    max-width: 100%;
+    max-height: calc(100vh - 32px);
+  }
+
+  .appointment-modal__close {
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* ===== Cookie Consent Banner ===== */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--c-white);
+  padding: 20px;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  line-height: 1.5;
+  animation: slideUp 0.3s ease-out;
+}
+
+.cookie-banner[aria-hidden="true"] {
+  display: none;
+}
+
+.cookie-banner__content {
+  flex: 1;
+}
+
+.cookie-banner__text {
+  margin: 0;
+  color: var(--c-main-text);
+}
+
+.cookie-banner__link {
+  color: var(--c-main);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.cookie-banner__link:hover {
+  text-decoration: none;
+}
+
+.cookie-banner__actions {
+  display: flex;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.cookie-banner__btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: var(--r-md);
+  font-size: 14px;
+  font-weight: var(--fw-medium);
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.cookie-banner__btn--accept {
+  background: var(--c-main);
+  color: var(--c-white);
+}
+
+.cookie-banner__btn--accept:hover {
+  background: var(--c-main-middle);
+  transform: scale(1.05);
+}
+
+.cookie-banner__btn--decline {
+  background: var(--c-bg-gray);
+  color: var(--c-main-text);
+  border: 1px solid #ddd;
+}
+
+.cookie-banner__btn--decline:hover {
+  background: #f0f0f0;
+}
+
+@media (max-width: 768px) {
+  .cookie-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .cookie-banner__actions {
+    width: 100%;
+  }
+
+  .cookie-banner__btn {
+    flex: 1;
+  }
+}
+
+/* ===== Заметка под CTA в информационном блоке ===== */
+.info-cta__note {
+  margin: 14px 0 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #4a5b57;
+}
+
+/* ===== Направления лечения (SEO-блок) ===== */
+.services__areas {
+  max-width: 700px;
+  margin: 40px auto 0;
+  padding: 28px;
+  background: #f7faf9;
+  border: 1px solid #e3efeb;
+  border-radius: 12px;
+}
+
+.services__areas-title {
+  margin: 0 0 16px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #113f36;
+  text-align: center;
+}
+
+.services__areas-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.services__areas-list li {
+  padding: 8px 16px;
+  background: #ffffff;
+  border: 1px solid #d8e8e3;
+  border-radius: 24px;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #2E3836;
+}
+
+/* Ключевые направления — визуальный акцент */
+.services__areas-list li.is-key {
+  background: linear-gradient(135deg, #78c9b9 0%, #54988b 100%);
+  border-color: transparent;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Подпись в карточке основателя */
+.doctor-card__signature {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(17, 63, 54, 0.12);
+}
+
+.doctor-card__signature-brand {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--c-main);
+  letter-spacing: 0.2px;
+}
+
+.doctor-card__signature-exp {
+  margin: 6px 0 12px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--c-text-gray);
+}
+
+.doctor-card__signature-phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--c-main);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.doctor-card__signature-phone::before {
+  content: '📞';
+  font-size: 16px;
+}
+
+.doctor-card__signature-phone:hover {
+  color: var(--c-main-middle);
+}
+
+/* Строка «координирует лечение + языки» под должностью основателя */
+.doctor-card__langs {
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--c-text-gray);
+}
+
+/* ===== Телефонная консультация ===== */
+.phone-consult {
+  max-width: 700px;
+  margin: 28px auto 0;
+  padding: 26px 28px;
+  background: linear-gradient(135deg, #f0f9f7 0%, #e8f5f2 100%);
+  border-left: 4px solid #78c9b9;
+  border-radius: 8px;
+}
+
+.phone-consult__title {
+  margin: 0 0 10px;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--c-main);
+}
+
+.phone-consult__lead {
+  margin: 0 0 16px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--c-main-text);
+}
+
+.phone-consult__list {
+  margin: 0;
+  padding-left: 20px;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--c-main-text);
+}
+
+.phone-consult__list li { margin-bottom: 9px; }
+.phone-consult__list li:last-child { margin-bottom: 0; }
+.phone-consult__list strong { color: var(--c-main); }
+
+.phone-consult__list a {
+  color: var(--c-main);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .phone-consult { padding: 20px 18px; }
+  .phone-consult__title { font-size: 17px; }
+}
+
+/* «Ближайшая запись» — кликабельная кнопка, открывает виджет с предвыбором */
+/* The four claims that decide whether a visitor stays, on the one screen
+   everybody sees. Chips rather than a paragraph: at a glance they read as four
+   facts, where a paragraph here would be read by nobody. */
+.hero__facts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.hero__facts li {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  color: #ffffff;
+  font-size: 13px;
+  line-height: 1.25;
+}
+
+.hero__facts span { font-size: 14px; line-height: 1; }
+
+@media (max-width: 670px) {
+  .hero__facts { gap: 6px; margin-top: 14px; }
+  .hero__facts li { padding: 6px 11px; font-size: 12px; }
+}
+
+/* The single highest-intent thing on the page: it does not ask the visitor to
+   want an appointment, it tells them one is free tomorrow at 16:20. It was
+   styled as a white info chip with a hairline border — the visual language of
+   a caption, something to read past. Anyone who wanted that slot had to guess
+   it was clickable.
+
+   So it is dressed as what it is: a filled button in the brand green, with the
+   time in white and an arrow that leans forward on hover. It outranks the
+   outline buttons around it deliberately. */
+.next-slot {
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 14px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #135045 0%, #113f36 100%);
+  border: 0;
+  font-family: inherit;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.82);
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(17, 63, 54, 0.24);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.next-slot:not([hidden]) { display: inline-flex; }
+
+.next-slot:hover {
+  box-shadow: 0 10px 26px rgba(17, 63, 54, 0.32);
+  transform: translateY(-2px);
+}
+
+.next-slot:active { transform: translateY(0); }
+
+.next-slot:focus-visible {
+  outline: 3px solid var(--c-accent);
+  outline-offset: 3px;
+}
+
+/* Hero variant. The base .next-slot is drawn for a light panel; on the hero's
+   dark ground it needs its own fill and a light label, and it should read as
+   the most important control on the screen, not as a chip among the facts. */
+.next-slot--hero {
+  margin: 22px auto 0;
+  padding: 13px 22px;
+  border: 0;
+  border-radius: 999px;
+  background: #ffffff;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.22);
+}
+
+.next-slot--hero:hover {
+  background: #ffffff;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.28);
+}
+
+.next-slot--hero .next-slot__label {
+  color: #4a6a62;
+}
+
+.next-slot--hero .next-slot__value,
+.next-slot--hero .next-slot__cta {
+  color: #113f36;
+}
+
+/* The base dot is a pale mint that carries on the dark green fill and vanishes
+   on this white one. Same signal, enough weight to survive the light card. */
+.next-slot--hero .next-slot__value::before {
+  background: #0ca678;
+  box-shadow: 0 0 0 3px rgba(12, 166, 120, 0.18);
+}
+
+@media (max-width: 670px) {
+  .next-slot--hero {
+    margin-top: 16px;
+    padding: 11px 18px;
+    width: 100%;
+    max-width: 340px;
+    justify-content: center;
+  }
+}
+
+.next-slot__label {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.next-slot__value {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+/* The dot says "free right now" — it belongs to the time, not to the label. */
+.next-slot__value::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 7px;
+  border-radius: 50%;
+  background: #6ee7b7;
+  box-shadow: 0 0 0 3px rgba(110, 231, 183, 0.25);
+  vertical-align: middle;
+}
+
+.next-slot__cta {
+  font-weight: 700;
+  color: var(--c-accent);
+  white-space: nowrap;
+  transition: transform 0.2s ease;
+}
+
+.next-slot:hover .next-slot__cta { transform: translateX(3px); }
+
+/* In-card variant. The header block above it is left-aligned, so the pill is
+   too — centring it under a left-aligned name reads as a stray element. It also
+   sits full width on a phone, where a shrink-to-fit pill next to a long doctor
+   name wrapped onto three lines. */
+.next-slot--doctor {
+  margin: 16px 0 0;
+  align-self: flex-start;
+  font-size: 14px;
+  padding: 11px 20px;
+  justify-content: flex-start;
+}
+
+@media (max-width: 670px) {
+  .next-slot--doctor {
+    width: 100%;
+    justify-content: center;
   }
 }

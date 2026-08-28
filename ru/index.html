@@ -2,25 +2,6 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8">
-    <!-- Автоопределение языка: с главной уводим на версию по языку браузера -->
-  <script>
-  (function () {
-    try {
-      if (localStorage.getItem('mc_lang_chosen')) return;      // язык выбран вручную — не трогаем
-      var p = location.pathname;
-      if (p !== '/' && p !== '/index.html') return;            // работает только на главной
-      if (location.search.indexOf('nolang') !== -1) return;
-      var l = (navigator.language || navigator.userLanguage || '').toLowerCase();
-      var map = [['cs', '/cs/'], ['sk', '/cs/'], ['uk', '/ua/'],
-                 ['ru', '/ru/'], ['be', '/ru/'], ['kk', '/ru/']];
-      var dest = '/en/';
-      for (var i = 0; i < map.length; i++) {
-        if (l.indexOf(map[i][0]) === 0) { dest = map[i][1]; break; }
-      }
-      if (dest !== '/ru/') location.replace(dest);              // главная = ru, её не трогаем
-    } catch (e) {}
-  })();
-  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <title>🩺 Русскоговорящий уролог в Праге — приём и консультация по телефону</title>
@@ -114,8 +95,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/responsive.css">
 
   <!-- Structured Data (Schema.org) -->
   <script type="application/ld+json">
@@ -223,10 +204,10 @@
   }
   </script>
 
-  <script src="js/main.js" defer></script>
-  <script src="js/next-slot.js" defer></script>
-  <script src="js/header-top.js" defer></script>
-  <script src="js/doctor-cards.js" defer></script>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/next-slot.js" defer></script>
+  <script src="../js/header-top.js" defer></script>
+  <script src="../js/doctor-cards.js" defer></script>
 
   <!-- Structured Data - Lead Physician -->
   <script type="application/ld+json">
@@ -339,7 +320,7 @@
     ]
   }
   </script>
-  <script src="js/lang-redirect.js"></script>
+  <script src="../js/lang-redirect.js"></script>
 </head>
 <body id="top">
   <div class="hero-wrap">
@@ -376,48 +357,48 @@
         <div class="topbar__inner">
           <div class="topbar__left">
             <button class="topbar__menu-btn" type="button" aria-label="Открыть меню" aria-controls="mobile-menu" aria-expanded="false">
-              <img src="assets/icons/icon-menu.svg" alt="" width="24" height="24">
+              <img src="../assets/icons/icon-menu.svg" alt="" width="24" height="24">
             </button>
             <a class="topbar__brand" href="./" aria-label="На главную">
-              <img class="topbar__logo-icon" src="assets/icons/icon-logo-full-light.svg" alt="MenCare clinic" width="171" height="52">
+              <img class="topbar__logo-icon" src="../assets/icons/icon-logo-full-light.svg" alt="MenCare clinic" width="171" height="52">
             </a>
           </div>
 
           <nav class="hero-nav" aria-label="Навигация по секциям">
-          <ul class="hero-nav__list list-reset">
-            <li><a class="hero-nav__link" href="#doctor">О враче</a></li>
-            <li><a class="hero-nav__link" href="#services">Услуги</a></li>
-            <li><a class="hero-nav__link" href="#about">О клинике</a></li>
-            <li><a class="hero-nav__link" href="#faq">FAQ</a></li>
-            <li><a class="hero-nav__link" href="#contacts">Контакты</a></li>
-          </ul>
-        </nav>
+      <ul class="hero-nav__list list-reset">
+        <li><a class="hero-nav__link" href="#doctor">О враче</a></li>
+        <li><a class="hero-nav__link" href="#services">Услуги</a></li>
+        <li><a class="hero-nav__link" href="#about">О клинике</a></li>
+        <li><a class="hero-nav__link" href="#faq">FAQ</a></li>
+        <li><a class="hero-nav__link" href="#contacts">Контакты</a></li>
+      </ul>
+    </nav>
 
           <div class="topbar__right">
             <a class="topbar__item topbar__contact-desktop topbar__contact-phone" href="tel:+420733551133" aria-label="Позвонить +420 733 55 11 33">
-              <img class="topbar__icon" src="assets/icons/icon-phone.svg" alt="" width="28" height="28">
+              <img class="topbar__icon" src="../assets/icons/icon-phone.svg" alt="" width="28" height="28">
               <span>+420 733 55 11 33</span>
             </a>
             <a class="topbar__item topbar__contact-desktop topbar__contact-address" href="https://www.google.com/maps?q=Pod+Barv%C3%AD%C5%99kou+593%2F10%2C+Praha+5%2C+Sm%C3%ADchov" target="_blank" rel="noopener noreferrer" aria-label="Открыть адрес на карте">
-              <img class="topbar__icon" src="assets/icons/icon-geo.svg" alt="" width="28" height="28">
+              <img class="topbar__icon" src="../assets/icons/icon-geo.svg" alt="" width="28" height="28">
               <span>Pod Barvířkou 593/10, Praha 5, Smíchov</span>
             </a>
             <button class="topbar__contact-trigger topbar__contact-trigger--mobile" type="button" aria-label="Показать телефон" aria-expanded="false" aria-controls="topbar-reveal" data-reveal-trigger="phone">
-              <img class="topbar__icon" src="assets/icons/icon-phone.svg" alt="" width="28" height="28">
+              <img class="topbar__icon" src="../assets/icons/icon-phone.svg" alt="" width="28" height="28">
             </button>
             <button class="topbar__contact-trigger topbar__contact-trigger--mobile" type="button" aria-label="Показать адрес" aria-expanded="false" aria-controls="topbar-reveal" data-reveal-trigger="address">
-              <img class="topbar__icon" src="assets/icons/icon-geo.svg" alt="" width="28" height="28">
+              <img class="topbar__icon" src="../assets/icons/icon-geo.svg" alt="" width="28" height="28">
             </button>
             <a class="topbar__appointment-btn btn btn--primary" href="tel:+420733551133">☎ Бесплатная консультация</a>
             <div class="topbar__lang-dropdown" data-lang-dropdown>
               <button class="topbar__lang" type="button" aria-label="Выбрать язык" aria-haspopup="listbox" aria-expanded="false" aria-controls="lang-menu" data-lang-trigger>
                 <span class="topbar__lang-current">Ru</span>
-                <img class="topbar__lang-chevron" src="assets/icons/icon-arrow-down.svg" alt="" aria-hidden="true" width="9" height="6">
+                <img class="topbar__lang-chevron" src="../assets/icons/icon-arrow-down.svg" alt="" aria-hidden="true" width="9" height="6">
               </button>
               <ul class="topbar__lang-menu list-reset" id="lang-menu" role="menu" hidden data-lang-menu>
-                <li role="none"><a class="topbar__lang-option" role="menuitem" href="en/" lang="en">En</a></li>
-                <li role="none"><a class="topbar__lang-option" role="menuitem" href="cs/" lang="cs">Cz</a></li>
-                <li role="none"><a class="topbar__lang-option" role="menuitem" href="ua/" lang="uk">Ua</a></li>
+                <li role="none"><a class="topbar__lang-option" role="menuitem" href="../en/" lang="en">En</a></li>
+                <li role="none"><a class="topbar__lang-option" role="menuitem" href="../cs/" lang="cs">Cz</a></li>
+                <li role="none"><a class="topbar__lang-option" role="menuitem" href="../ua/" lang="uk">Ua</a></li>
               </ul>
             </div>
           </div>
@@ -428,8 +409,7 @@
 
     <section class="hero" id="hero">
       <div class="container hero__content">
-
-        <img class="hero__mobile-logo" src="assets/icons/icon-logo-full-light.svg" alt="MenCare clinic" width="171" height="52">
+        <img class="hero__mobile-logo" src="../assets/icons/icon-logo-full-light.svg" alt="MenCare clinic" width="171" height="52">
 
         <h1 class="hero__title">Клиника мужского здоровья в Праге</h1>
         <p class="hero__subtitle">Русскоговорящий уролог в Праге · Телефонные консультации на русском · Звоните нон-стоп 24/7</p>
@@ -445,7 +425,7 @@
           <span class="next-slot__cta">Записаться →</span>
         </button>
       </div>
-      <img class="hero__decoration" src="assets/icons/hero-decoration.svg" alt="">
+      <img class="hero__decoration" src="../assets/icons/hero-decoration.svg" alt="">
     </section>
   </div>
 
@@ -481,7 +461,7 @@
 
         <article class="doctor-card" id="doctor-jiri" aria-label="Карточка врача">
           <div class="doctor-card__media edge-decor--all">
-            <img src="assets/img/doctor-photo-jiri.jpg" loading="lazy" decoding="async" alt="MUDr. Jiří Kočárek Ph.D." width="458" height="458">
+            <img src="../assets/img/doctor-photo-jiri.jpg" loading="lazy" decoding="async" alt="MUDr. Jiří Kočárek Ph.D." width="458" height="458">
           </div>
 
           <div class="doctor-card__content">
@@ -520,7 +500,7 @@
 
         <article class="doctor-card" id="doctor-kiryl" aria-label="Карточка врача">
           <div class="doctor-card__media edge-decor--all">
-            <img src="assets/img/doctor-photo-kiryl.jpg" loading="lazy" decoding="async" alt="MUDr. Kiryl Kuzmitski" width="458" height="458">
+            <img src="../assets/img/doctor-photo-kiryl.jpg" loading="lazy" decoding="async" alt="MUDr. Kiryl Kuzmitski" width="458" height="458">
           </div>
 
           <div class="doctor-card__content">
@@ -558,7 +538,7 @@
 
         <article class="doctor-card" id="doctor-petr" aria-label="Карточка врача">
           <div class="doctor-card__media edge-decor--all">
-            <img src="assets/img/petr-vlcek.jpg" loading="lazy" decoding="async" alt="Профессор Петр Влчек" width="458" height="458">
+            <img src="../assets/img/petr-vlcek.jpg" loading="lazy" decoding="async" alt="Профессор Петр Влчек" width="458" height="458">
           </div>
 
           <div class="doctor-card__content">
@@ -588,7 +568,7 @@
 
         <article class="doctor-card" id="doctor-chlumsky" aria-label="Карточка врача">
           <div class="doctor-card__media edge-decor--all">
-            <img src="assets/img/jaromir-chlumsky.jpg" loading="lazy" decoding="async" alt="doc. MUDr. Jaromír Chlumský PhD." width="458" height="458">
+            <img src="../assets/img/jaromir-chlumsky.jpg" loading="lazy" decoding="async" alt="doc. MUDr. Jaromír Chlumský PhD." width="458" height="458">
           </div>
 
           <div class="doctor-card__content">
@@ -619,7 +599,7 @@
 
         <article class="doctor-card" id="doctor-eugeny" aria-label="Карточка врача">
           <div class="doctor-card__media edge-decor--all">
-            <img src="assets/img/eugeny-zorica-new.jpg" loading="lazy" decoding="async" alt="Евгений Зорич" width="458" height="458">
+            <img src="../assets/img/eugeny-zorica-new.jpg" loading="lazy" decoding="async" alt="Евгений Зорич" width="458" height="458">
           </div>
 
           <div class="doctor-card__content">
@@ -655,7 +635,7 @@
     <section class="about" id="about">
       <div class="container">
         <div style="text-align: center; margin-bottom: 40px;">
-          <img src="assets/icons/icon-logo-full.svg" alt="MenCare clinic" width="200" height="62" style="display: inline-block;">
+          <img src="../assets/icons/icon-logo-full.svg" alt="MenCare clinic" width="200" height="62" style="display: inline-block;">
         </div>
         <h2 class="section-title about__title" style="text-align: center;">О клинике</h2>
         <div class="about__intro" style="max-width: 680px; margin: 40px auto 0; text-align: center;">
@@ -964,19 +944,19 @@
         <div class="why__panel">
           <ul class="why__list list-reset">
             <li class="why__item">
-              <img class="why__icon" src="assets/icons/benefit-icon-1.svg" alt="" width="48" height="48">
+              <img class="why__icon" src="../assets/icons/benefit-icon-1.svg" alt="" width="48" height="48">
               <p class="why__text">Приём на русском, чешском и английском языках — без языкового барьера</p>
             </li>
             <li class="why__item">
-              <img class="why__icon" src="assets/icons/benefit-icon-2.svg" alt="" width="48" height="48">
+              <img class="why__icon" src="../assets/icons/benefit-icon-2.svg" alt="" width="48" height="48">
               <p class="why__text">Полная конфиденциальность и строгая врачебная тайна</p>
             </li>
             <li class="why__item">
-              <img class="why__icon" src="assets/icons/benefit-icon-3.svg" alt="" width="48" height="48">
+              <img class="why__icon" src="../assets/icons/benefit-icon-3.svg" alt="" width="48" height="48">
               <p class="why__text">Более 30 лет практики — один из ведущих урологов Чехии и Европы</p>
             </li>
             <li class="why__item">
-              <img class="why__icon" src="assets/icons/benefit-icon-4.svg" alt="" width="48" height="48">
+              <img class="why__icon" src="../assets/icons/benefit-icon-4.svg" alt="" width="48" height="48">
               <p class="why__text">Приём строго по записи — без очередей, точно в назначенное время</p>
             </li>
           </ul>
@@ -994,7 +974,7 @@
           <li class="faq__item">
             <button class="faq__question" type="button">
               Для кого эта клиника?
-              <img class="faq__icon" src="assets/icons/icon-arrow-down-gray.svg" alt="" width="24" height="24">
+              <img class="faq__icon" src="../assets/icons/icon-arrow-down-gray.svg" alt="" width="24" height="24">
             </button>
             <div class="faq__answer">
               <div class="faq__answer-inner">
@@ -1006,7 +986,7 @@
           <li class="faq__item">
             <button class="faq__question" type="button">
               Принимаете ли вы по страховке?
-              <img class="faq__icon" src="assets/icons/icon-arrow-down-gray.svg" alt="" width="24" height="24">
+              <img class="faq__icon" src="../assets/icons/icon-arrow-down-gray.svg" alt="" width="24" height="24">
             </button>
             <div class="faq__answer">
               <div class="faq__answer-inner">
@@ -1018,7 +998,7 @@
           <li class="faq__item">
             <button class="faq__question" type="button">
               Сколько стоит консультация?
-              <img class="faq__icon" src="assets/icons/icon-arrow-down-gray.svg" alt="" width="24" height="24">
+              <img class="faq__icon" src="../assets/icons/icon-arrow-down-gray.svg" alt="" width="24" height="24">
             </button>
             <div class="faq__answer">
               <div class="faq__answer-inner">
@@ -1033,7 +1013,7 @@
           <li class="faq__item">
             <button class="faq__question" type="button">
               Как записаться на приём?
-              <img class="faq__icon" src="assets/icons/icon-arrow-down-gray.svg" alt="" width="24" height="24">
+              <img class="faq__icon" src="../assets/icons/icon-arrow-down-gray.svg" alt="" width="24" height="24">
             </button>
             <div class="faq__answer">
               <div class="faq__answer-inner">
@@ -1047,7 +1027,7 @@
           <li class="faq__item">
             <button class="faq__question" type="button">
               Можно ли организовать урологическую операцию?
-              <img class="faq__icon" src="assets/icons/icon-arrow-down-gray.svg" alt="" width="24" height="24">
+              <img class="faq__icon" src="../assets/icons/icon-arrow-down-gray.svg" alt="" width="24" height="24">
             </button>
             <div class="faq__answer">
               <div class="faq__answer-inner">
@@ -1059,7 +1039,7 @@
           <li class="faq__item">
             <button class="faq__question" type="button">
               Это урологическая клиника?
-              <img class="faq__icon" src="assets/icons/icon-arrow-down-gray.svg" alt="" width="24" height="24">
+              <img class="faq__icon" src="../assets/icons/icon-arrow-down-gray.svg" alt="" width="24" height="24">
             </button>
             <div class="faq__answer">
               <div class="faq__answer-inner">
@@ -1071,7 +1051,7 @@
           <li class="faq__item">
             <button class="faq__question" type="button">
               Как подготовиться к консультации?
-              <img class="faq__icon" src="assets/icons/icon-arrow-down-gray.svg" alt="" width="24" height="24">
+              <img class="faq__icon" src="../assets/icons/icon-arrow-down-gray.svg" alt="" width="24" height="24">
             </button>
             <div class="faq__answer">
               <div class="faq__answer-inner">
@@ -1158,11 +1138,11 @@
       <div class="footer__bottom">
         <a class="btn btn--outline footer__to-top" href="#top">
           <span>Наверх</span>
-          <img src="assets/icons/arrow-top.svg" alt="" width="24" height="24">
+          <img src="../assets/icons/arrow-top.svg" alt="" width="24" height="24">
         </a>
-        <img class="footer__logo" src="assets/icons/icon-logo-full.svg" alt="MenCare clinic" width="122" height="38">
+        <img class="footer__logo" src="../assets/icons/icon-logo-full.svg" alt="MenCare clinic" width="122" height="38">
         <button class="footer__legal" type="button" onclick="openClinicRules()">
-          <img src="assets/icons/icon-info.svg" alt="" width="12" height="12" aria-hidden="true">
+          <img src="../assets/icons/icon-info.svg" alt="" width="12" height="12" aria-hidden="true">
           <span>Vnitřní a provozní řád kliniky MenCare clinic</span>
         </button>
         <p class="footer__copyright">
@@ -1173,7 +1153,7 @@
   </footer>
 
   <button class="floating-cta" type="button" aria-label="Записаться на приём" data-appointment-btn>
-    <img class="floating-cta__bg" src="assets/img/fixed_btn.png" alt="" width="88" height="88" aria-hidden="true">
+    <img class="floating-cta__bg" src="../assets/img/fixed_btn.png" alt="" width="88" height="88" aria-hidden="true">
     <span class="floating-cta__label">Записаться</span>
   </button>
 
@@ -1214,7 +1194,7 @@
     <button class="mobile-menu__overlay" type="button" aria-label="Закрыть меню"></button>
     <aside class="mobile-menu__panel" role="dialog" aria-modal="true" aria-label="Мобильное меню">
       <div class="mobile-menu__header">
-        <img class="mobile-menu__logo" src="assets/icons/icon-logo-full.svg" alt="MenCare clinic" width="122" height="38">
+        <img class="mobile-menu__logo" src="../assets/icons/icon-logo-full.svg" alt="MenCare clinic" width="122" height="38">
         <button class="mobile-menu__close" type="button" aria-label="Закрыть меню">
           <svg class="mobile-menu__close-icon" width="32" height="43" viewBox="0 0 32 43" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path d="M8 30.4706L24.9706 13.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <!-- Главная на русском - ОПЕРАЦИИ И ОБСЛЕДОВАНИЯ -->
+  <url>
+    <loc>https://mencare.cz/ru/</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://mencare.cz/green-logo.svg</image:loc>
+      <image:title>MenCare clinic - Уролог Прага, робот-хирургия, операции</image:title>
+    </image:image>
+  </url>
+
+  <!-- English -->
+  <url>
+    <loc>https://mencare.cz/en/</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://mencare.cz/green-logo.svg</image:loc>
+      <image:title>MenCare clinic - Urologist Prague, robot surgery, operations</image:title>
+    </image:image>
+  </url>
+
+  <!-- Čeština - UROLOG PRAHA, OPERACE -->
+  <url>
+    <loc>https://mencare.cz/cs/</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://mencare.cz/green-logo.svg</image:loc>
+      <image:title>MenCare clinic - Urolog Praha, robotická chirurgie, vyšetření, operace</image:title>
+    </image:image>
+  </url>
+
+  <!-- Українська -->
+  <url>
+    <loc>https://mencare.cz/ua/</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://mencare.cz/green-logo.svg</image:loc>
+      <image:title>MenCare clinic - Уролог в Празі, робот-хірургія, обстеження, операції</image:title>
+    </image:image>
+  </url>
+</urlset>

@@ -1,0 +1,8 @@
+# Секреты — никогда в git
+.env
+.env.local
+functions/.env
+# Локальное
+node_modules/
+.firebase/
+functions/firebase-debug.log

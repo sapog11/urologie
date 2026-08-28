@@ -213,6 +213,8 @@ exports.appointmentForm = functions.https.onRequest(async (req, res) => {
     console.error('Error processing appointment form:', error);
     return res.status(500).json({
       error: 'Failed to process appointment request',
+      details: error.message,
+      code: error.code,
     });
   }
 });

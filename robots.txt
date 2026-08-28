@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+
+# Google Sitemap
+Sitemap: https://mencare.cz/sitemap.xml
+
+# Yandex Sitemap
+Sitemap: https://mencare.cz/sitemap-yandex.xml

@@ -167,16 +167,24 @@ const FormHandler = (() => {
         problem: elements.problemInput.value.trim(),
       };
 
-      // Call Firebase Cloud Function
-      // Check if Firebase is initialized
-      if (typeof firebase === 'undefined' || !firebase.functions) {
-        throw new Error('Firebase not initialized');
+      // Call Cloud Function via HTTP
+      const functionUrl = 'https://us-central1-urologie-9b2bf.cloudfunctions.net/appointmentForm';
+
+      const response = await fetch(functionUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.details || errorData.error || 'Failed to send appointment request');
       }
 
-      const sendEmail = firebase.functions().httpsCallable('sendAppointmentEmail');
-      const response = await sendEmail(formData);
-
-      showSuccess(response.data.message);
+      const result = await response.json();
+      showSuccess(result.message || 'Appointment request sent successfully!');
       resetForm();
 
       // Close modal after 2 seconds
@@ -187,9 +195,7 @@ const FormHandler = (() => {
       console.error('Error submitting form:', error);
       let errorMessage = 'Failed to send appointment request. Please try again.';
 
-      if (error.code === 'invalid-argument') {
-        errorMessage = error.message;
-      } else if (error.code === 'internal') {
+      if (error.message) {
         errorMessage = error.message;
       }
 

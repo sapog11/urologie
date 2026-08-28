@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MenCare Clinic — Business Card</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Ubuntu", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: #f5f5f5;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .business-card {
+      width: 90mm;
+      height: 50mm;
+      background: linear-gradient(135deg, #113f36 0%, #1a5448 100%);
+      color: white;
+      display: flex;
+      padding: 6mm;
+      border-radius: 2px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .business-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: -20px;
+      width: 100px;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.05);
+      transform: skewX(-20deg);
+    }
+
+    .card-left {
+      flex: 0 0 auto;
+      padding-right: 8mm;
+      border-right: 2px solid rgba(255, 255, 255, 0.3);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-width: 20mm;
+    }
+
+    .logo {
+      width: 16mm;
+      height: 16mm;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2mm;
+      margin-bottom: 3mm;
+    }
+
+    .logo-text {
+      font-size: 7pt;
+      font-weight: 700;
+      color: #113f36;
+      text-align: center;
+      line-height: 1.2;
+    }
+
+    .card-right {
+      flex: 1;
+      padding-left: 6mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .clinic-name {
+      font-size: 12pt;
+      font-weight: 700;
+      margin-bottom: 4mm;
+      letter-spacing: 0.5px;
+    }
+
+    .clinic-name-sub {
+      font-size: 7pt;
+      font-weight: 300;
+      opacity: 0.9;
+      margin-bottom: 3mm;
+    }
+
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.3);
+      margin-bottom: 3mm;
+    }
+
+    .contact-info {
+      font-size: 7pt;
+      line-height: 1.6;
+      opacity: 0.95;
+    }
+
+    .contact-line {
+      margin-bottom: 2mm;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .contact-icon {
+      display: inline-block;
+      width: 3mm;
+      margin-right: 2mm;
+      text-align: center;
+    }
+
+    .contact-text {
+      flex: 1;
+      word-break: break-word;
+    }
+
+    .address {
+      font-weight: 500;
+    }
+
+    /* Print styles */
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+      }
+
+      .business-card {
+        box-shadow: none;
+        margin: 0;
+      }
+
+      /* Print multiple cards per page (A4) */
+      @page {
+        size: A4;
+        margin: 0;
+      }
+    }
+
+    /* Dark theme toggle */
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #113f36;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 14px;
+      z-index: 100;
+    }
+
+    body.light-theme .business-card {
+      background: linear-gradient(135deg, #113f36 0%, #1a5448 100%);
+    }
+
+    body.dark-theme .business-card {
+      background: linear-gradient(135deg, #0a2620 0%, #0f3a35 100%);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    }
+  </style>
+</head>
+<body>
+
+  <button class="theme-toggle" onclick="toggleTheme()">🌙 Dark Mode</button>
+
+  <div class="business-card">
+    <div class="card-left">
+      <div class="logo">
+        <div class="logo-text">MC</div>
+      </div>
+    </div>
+
+    <div class="card-right">
+      <div class="clinic-name">MENCARE</div>
+      <div class="clinic-name-sub">Men's Health Clinic</div>
+
+      <div class="divider"></div>
+
+      <div class="contact-info">
+        <div class="contact-line">
+          <div class="contact-icon">📍</div>
+          <div class="contact-text address">Pod Barvířkou 593/10, Praha 5</div>
+        </div>
+        <div class="contact-line">
+          <div class="contact-icon">📞</div>
+          <div class="contact-text"><a href="tel:+420773355133" style="color: white; text-decoration: none;">+420 773 355 133</a></div>
+        </div>
+        <div class="contact-line">
+          <div class="contact-icon">✉️</div>
+          <div class="contact-text"><a href="mailto:info@mencare.cz" style="color: white; text-decoration: none;">info@mencare.cz</a></div>
+        </div>
+        <div class="contact-line">
+          <div class="contact-icon">🌐</div>
+          <div class="contact-text"><a href="https://mencare.cz" style="color: white; text-decoration: none;">mencare.cz</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('dark-theme');
+      const button = document.querySelector('.theme-toggle');
+      if (document.body.classList.contains('dark-theme')) {
+        button.textContent = '☀️ Light Mode';
+      } else {
+        button.textContent = '🌙 Dark Mode';
+      }
+    }
+  </script>
+
+</body>
+</html>
