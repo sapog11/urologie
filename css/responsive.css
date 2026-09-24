@@ -771,14 +771,29 @@
 }
 
 @media (max-width: 500px) {
-  /* Hero - убираем фото, делаем чистый градиент */
+  /* Hero: фото полосой сверху, текст на сплошном зелёном под ней.
+     Раньше фото здесь убиралось совсем, потому что cover на таком высоком
+     блоке зумит в середину кадра. Полоса фиксированной высоты показывает
+     лицо и не мешает тексту. */
   .hero-wrap {
-    background-image: linear-gradient(160deg, #0E332C 0%, #1a5c4e 60%, #113f36 100%) !important;
+    background-color: #113f36;
+    background-image:
+      linear-gradient(
+        to bottom,
+        rgba(17, 63, 54, 0.28) 0px,
+        rgba(17, 63, 54, 0.32) 170px,
+        rgba(17, 63, 54, 0.93) 310px,
+        rgba(17, 63, 54, 1) 380px
+      ),
+      url("../assets/img/hero-bg-mobile.jpg") !important;
+    background-size: auto 400px, auto 400px !important;
+    background-position: center top, center top !important;
+    background-repeat: no-repeat, no-repeat !important;
   }
 
   .hero {
     min-height: auto;
-    padding-top: 80px;
+    padding-top: 272px;
     padding-bottom: 32px;
   }
 
@@ -1424,3 +1439,35 @@
 /* Above the breakpoint the button is hidden by the [hidden] attribute the
    script sets; this keeps it hidden even if a stylesheet resets [hidden]. */
 .doctor-card__toggle[hidden] { display: none; }
+
+/* ── Hero on phones ─────────────────────────────────────────────────────────
+   The wide banner cropped to a phone cuts his face off, so phones get the
+   portrait frame — but not as `cover`: this hero runs ~1200px tall (title,
+   subtitle, four chips, slot button) and covering that zooms into his chest
+   until the photo reads as a flat green field.
+
+   So the photo takes a fixed band at the top, sized so his face falls inside
+   it, and the gradient turns opaque just below, where the copy starts. The
+   band is a photograph; everything under it is the brand green, deliberately. */
+@media (max-width: 767px) {
+  .hero-wrap {
+    background-color: #113f36;
+    background-image:
+      linear-gradient(
+        to bottom,
+        rgba(17, 63, 54, 0.30) 0px,
+        rgba(17, 63, 54, 0.34) 180px,
+        rgba(17, 63, 54, 0.92) 330px,
+        rgba(17, 63, 54, 1) 400px
+      ),
+      url("../assets/img/hero-bg-mobile.jpg");
+    background-size: auto 430px, auto 430px;
+    background-position: center top, center top;
+    background-repeat: no-repeat, no-repeat;
+  }
+
+  /* Start the copy below the band rather than across his face. */
+  .hero {
+    padding-top: 300px;
+  }
+}

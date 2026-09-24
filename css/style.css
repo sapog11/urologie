@@ -676,12 +676,17 @@ body.menu-open {
 .hero-wrap {
   position: relative;
   background-image:
-    linear-gradient(rgba(17, 63, 54, 0.75), rgba(17, 63, 54, 0.75)),
+    linear-gradient(
+      100deg,
+      rgba(17, 63, 54, 0.94) 0%,
+      rgba(17, 63, 54, 0.88) 34%,
+      rgba(17, 63, 54, 0.55) 62%,
+      rgba(17, 63, 54, 0.34) 100%
+    ),
     url("../assets/img/hero-bg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-
-  background-position: center 52%;
+  background-position: right center;
 }
 .hero {
   position: relative;
@@ -1784,8 +1789,8 @@ body.menu-open {
   bottom: 100px;
   z-index: 120;
 
-  width: 88px;
-  height: 88px;
+  width: 72px;
+  height: 72px;
   padding: 0;
   border: 0;
   background: transparent;
@@ -1803,20 +1808,30 @@ body.menu-open {
    every few seconds restores the one thing it needs: looking live. Slow and
    sparse on purpose; a fast pulse reads as an ad and gets ignored twice as
    hard. */
-.floating-cta::before {
+.floating-cta::before,
+.floating-cta::after {
   content: '';
   position: absolute;
-  inset: 6px;
+  /* Starts outside the disc, not inside it: the halo has to be the bigger
+     shape or it is hidden behind the thing it is announcing. */
+  inset: -10px;
   border-radius: 50%;
-  background: rgba(120, 201, 185, 0.45);
+  background: rgba(120, 201, 185, 0.42);
   animation: floating-cta-halo 3.4s ease-out infinite;
   pointer-events: none;
   z-index: -1;
 }
 
+/* Second ring, half a cycle behind, so the pulse never fully stops. */
+.floating-cta::after {
+  animation-delay: 1.7s;
+  background: rgba(120, 201, 185, 0.30);
+}
+
 @keyframes floating-cta-halo {
-  0%        { transform: scale(0.9); opacity: 0.65; }
-  55%, 100% { transform: scale(1.45); opacity: 0; }
+  0%   { transform: scale(0.82); opacity: 0.7; }
+  70%  { transform: scale(1.85); opacity: 0; }
+  100% { transform: scale(1.85); opacity: 0; }
 }
 
 .floating-cta:hover {
@@ -1835,14 +1850,15 @@ body.menu-open {
 /* Anyone who has asked their system to stop moving things gets a still button
    that still looks pressable. */
 @media (prefers-reduced-motion: reduce) {
-  .floating-cta::before { animation: none; opacity: 0; }
+  .floating-cta::before,
+  .floating-cta::after { animation: none; opacity: 0; }
   .floating-cta:hover { transform: none; }
 }
 
 .floating-cta__bg {
   display: block;
-  width: 88px;
-  height: 88px;
+  width: 72px;
+  height: 72px;
   object-fit: contain;
   pointer-events: none;
   user-select: none;
@@ -1851,17 +1867,18 @@ body.menu-open {
 .floating-cta__label {
   position: absolute;
   left: 50%;
-  bottom: 18px;
+  bottom: 13px;
   transform: translateX(-50%);
 
-  max-width: 70px;
+  max-width: 66px;
   text-align: center;
   pointer-events: none;
   user-select: none;
 
   color: #fff;
   font-family: var(--ff-base);
-  font-size: 14px;
+  font-size: 11px;
+  line-height: 1.15;
   font-weight: var(--fw-light);
   line-height: 1.1;
   letter-spacing: 0;
@@ -3079,5 +3096,98 @@ body.menu-open {
   .next-slot--doctor {
     width: 100%;
     justify-content: center;
+  }
+}
+
+/* ── Hero copy to the left, doctor to the right ─────────────────────────────
+   The banner puts him in the right half with the instrument table empty on the
+   left. Centred text landed across his chest and face; moved left it sits in
+   the part of the frame that has nothing in it, and the gradient above is
+   densest exactly there. */
+@media (min-width: 768px) {
+  .hero .container.hero__content {
+    align-items: flex-start;
+    text-align: left;
+    max-width: 640px;
+    /* .container sets `margin: 0 auto`, which re-centred the narrowed column. */
+    margin-left: max(24px, calc((100vw - 1416px) / 2 + 15px));
+    margin-right: auto;
+  }
+
+  .hero__title,
+  .hero__subtitle {
+    text-align: left;
+  }
+
+  .hero__title {
+    font-size: clamp(30px, 3.35vw, 50px);
+  }
+
+  .hero__facts {
+    justify-content: flex-start;
+  }
+
+  .next-slot--hero {
+    margin-left: 0;
+    margin-right: auto;
+  }
+}
+
+/* The hard break in the Czech headline is for the wide layout. On a phone the
+   column is narrow enough that the line breaks there anyway, and keeping the
+   <br> would only add an empty line under a one-word tail. */
+@media (max-width: 400px) {
+  .hero__title br { display: none; }
+}
+
+/* ── Brand above the headline ───────────────────────────────────────────────
+   The name of the clinic, in the accent colour, ahead of the doctor's name.
+   Hidden below 768px: the phone hero already shows the full logo, and two
+   brand marks stacked would just push the copy further down. */
+.hero__brand {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .hero__brand {
+    display: block;
+    /* Cancel the column gap: the brand belongs to the headline, not beside it. */
+    margin: 0 0 calc(12px - var(--hero-gap, 64px));
+    font-size: 17px;
+    font-weight: var(--fw-semibold, 600);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--c-accent);
+  }
+
+  .hero__brand span {
+    font-weight: var(--fw-regular, 400);
+    letter-spacing: 0.16em;
+    opacity: 0.85;
+  }
+}
+
+/* ── Preparation note on the price row ──────────────────────────────────────
+   Patients were arriving without a full bladder, which means the ultrasound
+   cannot be done and the visit has to be repeated. The instruction existed —
+   nine screens down, in the "how the visit goes" section. Here it sits on the
+   line people read before booking: the examination that includes the scan. */
+.services__prep-note {
+  flex-basis: 100%;
+  margin: 10px 0 0;
+  padding: 9px 13px;
+  border-radius: 10px;
+  border-left: 3px solid #d98324;
+  background: rgba(217, 131, 36, 0.10);
+  font-size: 14px;
+  line-height: 1.4;
+  font-weight: var(--fw-medium, 500);
+  color: var(--c-main, #113f36);
+}
+
+@media (max-width: 670px) {
+  .services__prep-note {
+    font-size: 13px;
+    padding: 8px 11px;
   }
 }
