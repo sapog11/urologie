@@ -58,6 +58,8 @@
   var base = document.querySelector('script[src*="alphamale-popup.js"]');
   var img = (base && base.getAttribute('src').indexOf('../') === 0 ? '../' : '') + 'assets/img/alphamale.webp';
   var href = SHOP + t.path + PRODUCT + '?utm_source=mencare&utm_medium=popup';
+  // loaded ahead, so the photo is there the moment the pop-up opens
+  new Image().src = img;
 
   var css =
     '.am-back{position:fixed;inset:0;z-index:10000;background:rgba(17,63,54,.45);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;transition:opacity .3s}' +
@@ -102,7 +104,7 @@
           '<a class="am-buy" href="' + href + '" target="_blank" rel="noopener">' + t.buy + '</a><span class="am-price">' + t.price + '</span>' +
           '<p class="am-note">' + t.note + '</p>' +
         '</div>' +
-        '<a class="am-side" href="' + href + '" target="_blank" rel="noopener"><img src="' + img + '" alt="AlphaMale" width="720" height="720" loading="lazy"></a>' +
+        '<a class="am-side" href="' + href + '" target="_blank" rel="noopener"><img src="' + img + '" alt="AlphaMale" width="720" height="720"></a>' +
       '</div>';
     document.body.appendChild(back);
     requestAnimationFrame(function () { back.classList.add('am-on'); });
