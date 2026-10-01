@@ -64,65 +64,66 @@
   new Image().src = img;
 
   var css =
-    '.am-back{position:fixed;inset:0;z-index:10000;background:rgba(17,63,54,.45);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;transition:opacity .3s}' +
-    '.am-back.am-on{opacity:1}' +
-    '.am-card{position:relative;max-width:560px;width:100%;background:#fff;border-radius:24px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(0,0,0,.45);display:grid;grid-template-columns:1fr 190px;font-family:inherit;color:#2E3836;transform:translateY(12px);transition:transform .3s}' +
-    '.am-on .am-card{transform:none}' +
-    '.am-body{padding:26px 22px 22px 26px}' +
-    '.am-badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#113f36;background:#e3f4f0;border-radius:999px;padding:4px 10px}' +
-    '.am-title{margin:12px 0 8px;font-size:22px;line-height:1.2;color:#113f36}' +
-    '.am-text{margin:0 0 10px;font-size:14px;line-height:1.5}' +
-    '.am-points{list-style:none;margin:0 0 14px;padding:0;font-size:13px;line-height:1.45}' +
-    '.am-points li{padding-left:20px;position:relative;margin:4px 0}' +
-    '.am-points li:before{content:"✓";position:absolute;left:0;color:#54988b;font-weight:700}' +
-    '.am-buy{display:inline-block;background:#113f36;color:#fff;text-decoration:none;font-weight:600;font-size:14px;border-radius:999px;padding:11px 18px}' +
-    '.am-buy:hover{background:#54988b}' +
-    '.am-price{margin-left:10px;font-weight:700;color:#113f36;white-space:nowrap}' +
-    '.am-note{margin:12px 0 0;font-size:11px;color:#808085}' +
-    '.am-side{background:linear-gradient(160deg,#e3f4f0,#78c9b9);display:flex;align-items:center;justify-content:center;padding:14px}' +
-    '.am-side img{width:100%;height:auto;border-radius:16px;background:#fff}' +
-    '.am-x{position:absolute;top:10px;right:10px;width:34px;height:34px;border:0;border-radius:50%;background:rgba(255,255,255,.9);font-size:20px;line-height:1;cursor:pointer;color:#113f36}' +
-    '@media (max-width:560px){.am-card{grid-template-columns:1fr}.am-side{order:-1;max-height:180px}.am-side img{width:150px}.am-body{padding:20px}}';
+    '.amp-back{position:fixed;inset:0;z-index:10000;background:rgba(17,63,54,.45);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;transition:opacity .3s}' +
+    '.amp-back.amp-on{opacity:1}' +
+    '.amp-card{position:relative;max-width:560px;width:100%;background:#fff;border-radius:24px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(0,0,0,.45);display:grid;grid-template-columns:1fr 190px;font-family:inherit;color:#2E3836;transform:translateY(12px);transition:transform .3s}' +
+    '.amp-on .amp-card{transform:none}' +
+    '.amp-body{padding:26px 22px 22px 26px}' +
+    '.amp-badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#113f36;background:#e3f4f0;border-radius:999px;padding:4px 10px}' +
+    '.amp-title{margin:12px 0 8px;font-size:22px;line-height:1.2;color:#113f36}' +
+    '.amp-text{margin:0 0 10px;font-size:14px;line-height:1.5}' +
+    '.amp-points{list-style:none;margin:0 0 14px;padding:0;font-size:13px;line-height:1.45}' +
+    '.amp-points li{padding-left:20px;position:relative;margin:4px 0}' +
+    '.amp-points li:before{content:"✓";position:absolute;left:0;color:#54988b;font-weight:700}' +
+    '.amp-row{display:flex;align-items:center;flex-wrap:wrap;gap:8px 14px}' +
+    '.amp-buy{display:inline-block;background:#113f36;color:#fff!important;text-decoration:none;font-weight:600;font-size:14px;border-radius:999px;padding:11px 18px}' +
+    '.amp-buy:hover{background:#54988b}' +
+    '.amp-price{font-size:22px;font-weight:700;color:#113f36;white-space:nowrap}' +
+    '.amp-note{margin:12px 0 0;font-size:11.5px;line-height:1.45;color:#808085}' +
+    '.amp-side{background:linear-gradient(160deg,#e3f4f0,#78c9b9);display:flex;align-items:center;justify-content:center;padding:14px}' +
+    '.amp-side img{width:100%;height:auto;border-radius:16px;background:#fff}' +
+    '.amp-x{position:absolute;top:10px;right:10px;width:34px;height:34px;border:0;border-radius:50%;background:rgba(255,255,255,.9);font-size:20px;line-height:1;cursor:pointer;color:#113f36}' +
+    '@media (max-width:560px){.amp-card{grid-template-columns:1fr}.amp-side{order:-1;max-height:180px}.amp-side img{width:150px}.amp-body{padding:20px}}';
 
   function show() {
-    if (document.querySelector('.am-back') || closedRecently()) return;
+    if (document.querySelector('.amp-back') || closedRecently()) return;
     var style = document.createElement('style');
     style.textContent = css;
     document.head.appendChild(style);
 
     var back = document.createElement('div');
-    back.className = 'am-back';
+    back.className = 'amp-back';
     back.setAttribute('role', 'dialog');
     back.setAttribute('aria-modal', 'true');
     back.setAttribute('aria-label', t.title);
     back.innerHTML =
-      '<div class="am-card">' +
-        '<button class="am-x" type="button" aria-label="' + t.close + '">×</button>' +
-        '<div class="am-body">' +
-          '<span class="am-badge">' + t.badge + '</span>' +
-          '<h2 class="am-title">' + t.title + '</h2>' +
-          '<p class="am-text">' + t.text + '</p>' +
-          '<ul class="am-points">' + t.points.map(function (p) { return '<li>' + p + '</li>'; }).join('') + '</ul>' +
-          '<a class="am-buy" href="' + cart + '" target="_blank" rel="noopener">' + t.buy + '</a><span class="am-price">' + t.price + '</span>' +
-          '<p class="am-note">' + t.note + '</p>' +
+      '<div class="amp-card">' +
+        '<button class="amp-x" type="button" aria-label="' + t.close + '">×</button>' +
+        '<div class="amp-body">' +
+          '<span class="amp-badge">' + t.badge + '</span>' +
+          '<h2 class="amp-title">' + t.title + '</h2>' +
+          '<p class="amp-text">' + t.text + '</p>' +
+          '<ul class="amp-points">' + t.points.map(function (p) { return '<li>' + p + '</li>'; }).join('') + '</ul>' +
+          '<div class="amp-row"><a class="amp-buy" href="' + cart + '" target="_blank" rel="noopener">🛒 ' + t.buy + '</a><span class="amp-price">' + t.price + '</span></div>' +
+          '<p class="amp-note">' + t.note + '</p>' +
         '</div>' +
-        '<a class="am-side" href="' + href + '" target="_blank" rel="noopener"><img src="' + img + '" alt="AlphaMale" width="720" height="720"></a>' +
+        '<a class="amp-side" href="' + href + '" target="_blank" rel="noopener"><img src="' + img + '" alt="AlphaMale" width="720" height="720"></a>' +
       '</div>';
     document.body.appendChild(back);
-    requestAnimationFrame(function () { back.classList.add('am-on'); });
+    requestAnimationFrame(function () { back.classList.add('amp-on'); });
 
     function close() {
       remember();
-      back.classList.remove('am-on');
+      back.classList.remove('amp-on');
       document.removeEventListener('keydown', onKey);
       setTimeout(function () { back.remove(); }, 300);
     }
     function onKey(e) { if (e.key === 'Escape') close(); }
-    back.querySelector('.am-x').addEventListener('click', close);
+    back.querySelector('.amp-x').addEventListener('click', close);
     back.addEventListener('click', function (e) { if (e.target === back) close(); });
     back.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', remember); });
     document.addEventListener('keydown', onKey);
-    back.querySelector('.am-x').focus();
+    back.querySelector('.amp-x').focus();
   }
 
   var timer = setTimeout(show, 10000);
