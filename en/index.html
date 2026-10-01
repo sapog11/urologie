@@ -743,90 +743,10 @@
 <section class="clinic-news" id="news">
       <div class="container">
         <h2 class="section-title" style="text-align:center;margin-bottom:24px;">Clinic news</h2>
-        <iframe
-          id="zoryx-articles-widget"
-          src="https://zoryx.app/clinic/articles/AAA_mencare_clinic?lang=en"
-          width="100%"
-          height="224"
-          scrolling="no"
-          style="border:none;border-radius:16px;display:block;width:100%;height:224px;margin:24px 0;"
-          title="MenCare clinic news"
-        ></iframe>
+        <div id="mc-news" data-clinic="AAA_mencare_clinic"></div>
       </div>
     </section>
-    <script>
-    // ZORYX news strip. It reports its own content height; until the clinic has
-    // an article that height is a few pixels, so the whole section stays hidden
-    // rather than leaving a heading over an empty gap.
-    (function () {
-      var CLINIC = 'AAA_mencare_clinic';
-      var overlay = null;
-
-      function close() {
-        if (!overlay) return;
-        document.body.removeChild(overlay);
-        document.body.style.overflow = '';
-        overlay = null;
-      }
-
-      window.addEventListener('message', function (e) {
-        if (!e.data || e.data.clinicId !== CLINIC) return;
-
-        if (e.data.type === 'zoryx-embed-resize') {
-          var frame = document.getElementById('zoryx-articles-widget');
-          var section = document.querySelector('.clinic-news');
-          // The booking widget on this page speaks the same protocol for the
-          // same clinic. Without this check the news strip took the booking
-          // form's height and became a screen and a half of empty gradient.
-          if (frame && e.source && e.source !== frame.contentWindow) return;
-          if (!frame || overlay) return;
-          // The strip has a fixed height, set in the markup, and keeps it. It
-          // used to start at zero and grow once the widget reported its size;
-          // this page lays itself out at load, so that late growth pushed
-          // everything down after the fact and sections came down on top of
-          // each other. The only thing left to react to is a clinic with
-          // nothing published, where the section removes itself.
-          if (e.data.height === 0) {
-            if (section) section.style.display = 'none';
-          }
-          return;
-        }
-
-        // Open an article over the page instead of inside the strip, then tell
-        // the widget we did — without the reply it opens in place.
-        if (e.data.type === 'zoryx-open-article') {
-          close();
-          overlay = document.createElement('div');
-          overlay.style.cssText = 'position:fixed;inset:0;z-index:2147483647;background:rgba(15,14,39,.92);display:flex;flex-direction:column;';
-
-          var bar = document.createElement('div');
-          bar.style.cssText = 'display:flex;justify-content:flex-end;padding:10px;';
-          var btn = document.createElement('button');
-          btn.setAttribute('aria-label', 'Close');
-          btn.textContent = '\u2715';
-          btn.style.cssText = 'width:40px;height:40px;border:none;border-radius:50%;background:rgba(255,255,255,.15);color:#fff;font-size:20px;cursor:pointer;';
-          btn.onclick = close;
-          bar.appendChild(btn);
-
-          var inner = document.createElement('iframe');
-          inner.src = e.data.url;
-          inner.style.cssText = 'flex:1;width:100%;border:none;';
-
-          overlay.appendChild(bar);
-          overlay.appendChild(inner);
-          document.body.appendChild(overlay);
-          document.body.style.overflow = 'hidden';
-
-          e.source && e.source.postMessage({ type: 'zoryx-article-opened', clinicId: CLINIC }, '*');
-          return;
-        }
-
-        if (e.data.type === 'zoryx-close-article') close();
-      });
-
-      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
-    })();
-    </script>
+    <script src="../js/news-strip.js" defer></script>
 
     <!-- ЗАКОММЕНТИРОВАНО: блок дублировал плашки в первом экране
          (языки, 30 лет практики, без очередей). Вернуть — снять обёртку.
