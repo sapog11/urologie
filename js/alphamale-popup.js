@@ -58,6 +58,8 @@
   var base = document.querySelector('script[src*="alphamale-popup.js"]');
   var img = (base && base.getAttribute('src').indexOf('../') === 0 ? '../' : '') + 'assets/img/alphamale.webp';
   var href = SHOP + t.path + PRODUCT + '?utm_source=mencare&utm_medium=popup';
+  // "Buy" puts AlphaMale straight into the shop's cart, as the shop's own button does
+  var cart = SHOP + '/kosik?p=417&c=438';
   // loaded ahead, so the photo is there the moment the pop-up opens
   new Image().src = img;
 
@@ -101,7 +103,7 @@
           '<h2 class="am-title">' + t.title + '</h2>' +
           '<p class="am-text">' + t.text + '</p>' +
           '<ul class="am-points">' + t.points.map(function (p) { return '<li>' + p + '</li>'; }).join('') + '</ul>' +
-          '<a class="am-buy" href="' + href + '" target="_blank" rel="noopener">' + t.buy + '</a><span class="am-price">' + t.price + '</span>' +
+          '<a class="am-buy" href="' + cart + '" target="_blank" rel="noopener">' + t.buy + '</a><span class="am-price">' + t.price + '</span>' +
           '<p class="am-note">' + t.note + '</p>' +
         '</div>' +
         '<a class="am-side" href="' + href + '" target="_blank" rel="noopener"><img src="' + img + '" alt="AlphaMale" width="720" height="720"></a>' +

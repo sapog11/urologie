@@ -3191,3 +3191,21 @@ body.menu-open {
     padding: 8px 11px;
   }
 }
+
+/* ===================== VISIT FLOW (how the visit goes) =====================
+   The section was in the markup in every language but had no styles at all:
+   numbers, headings and paragraphs ran edge to edge as one wall of text. */
+.visit-flow { padding: 64px 0; }
+.visit-flow__title { text-align: center; margin-bottom: 32px; }
+.visit-flow__list { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; max-width: 1180px; margin: 0 auto; }
+.visit-flow__step { position: relative; background: var(--c-white); border: 1px solid #e3efec; border-radius: 22px; padding: 26px 22px 24px; box-shadow: 0 14px 30px -22px rgba(17, 63, 54, .4); }
+.visit-flow__num { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, #113f36, #54988b); color: #fff; font-weight: 700; font-size: 19px; margin-bottom: 14px; }
+.visit-flow__step-title { font-size: 18px; line-height: 1.3; color: var(--c-main); margin: 0 0 8px; }
+.visit-flow__step-text { margin: 0; font-size: 15px; line-height: 1.55; color: var(--c-main-text); }
+.visit-flow__prep { max-width: 1180px; margin: 22px auto 0; background: #e3f4f0; border-radius: 22px; padding: 22px 26px; }
+.visit-flow__prep-title { font-size: 18px; color: var(--c-main); margin: 0 0 10px; }
+.visit-flow__prep-list { margin: 0; padding-left: 20px; display: grid; gap: 6px; font-size: 15px; line-height: 1.55; }
+.visit-flow__care { max-width: 1180px; margin: 16px auto 0; padding: 16px 22px 16px 54px; position: relative; border-radius: 18px; background: #fff; border: 1px dashed #78c9b9; font-size: 15px; line-height: 1.55; }
+.visit-flow__care::before { content: "📞"; position: absolute; left: 20px; top: 15px; font-size: 20px; }
+@media (max-width: 1024px) { .visit-flow__list { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .visit-flow { padding: 44px 0; } .visit-flow__list { grid-template-columns: 1fr; } .visit-flow__step { padding: 20px 18px; } }
