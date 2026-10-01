@@ -683,7 +683,7 @@ body.menu-open {
       rgba(17, 63, 54, 0.55) 62%,
       rgba(17, 63, 54, 0.34) 100%
     ),
-    url("../assets/img/hero-bg.jpg");
+    url("../assets/img/hero-bg-wide.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: right center;
