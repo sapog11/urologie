@@ -3209,3 +3209,7 @@ body.menu-open {
 .visit-flow__care::before { content: "📞"; position: absolute; left: 20px; top: 15px; font-size: 20px; }
 @media (max-width: 1024px) { .visit-flow__list { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 600px) { .visit-flow { padding: 44px 0; } .visit-flow__list { grid-template-columns: 1fr; } .visit-flow__step { padding: 20px 18px; } }
+
+/* doctor cards: photo at the top */
+@media (min-width: 671px) { .doctor-card { align-items: flex-start; } .doctor-card__media img { object-position: center top; } }
+.footer__author { margin: 6px 0 0; font-size: 13px; opacity: .75; }

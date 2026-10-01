@@ -1388,53 +1388,8 @@
   }
 }
 
-@media (max-width: 670px) {
-  /* Two of the five doctors take bookings; the other three are consulting
-     specialists and the clinic's director. Giving all five the same 200px
-     portrait spent a screen apiece on people you cannot book, and made the
-     director look like the head of urology. The three keep a portrait, at the
-     size of a contact photo, beside their name instead of above it. */
-  #doctor-petr .doctor-card,
-  #doctor-chlumsky .doctor-card,
-  .doctor-card#doctor-petr,
-  .doctor-card#doctor-chlumsky,
-  .doctor-card#doctor-eugeny {
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 14px;
-  }
-
-  .doctor-card#doctor-petr .doctor-card__media,
-  .doctor-card#doctor-chlumsky .doctor-card__media,
-  .doctor-card#doctor-eugeny .doctor-card__media {
-    width: 104px;
-    height: 104px;
-    flex: none;
-    margin: 0;
-  }
-
-  .doctor-card#doctor-petr .doctor-card__media img,
-  .doctor-card#doctor-chlumsky .doctor-card__media img,
-  .doctor-card#doctor-eugeny .doctor-card__media img {
-    width: 104px;
-    height: 104px;
-  }
-
-  .doctor-card#doctor-petr .doctor-card__content,
-  .doctor-card#doctor-chlumsky .doctor-card__content,
-  .doctor-card#doctor-eugeny .doctor-card__content {
-    min-width: 0;
-    flex: 1;
-  }
-
-  /* The decorative corner marks are drawn for a 200px square and land in the
-     middle of a 104px one. */
-  .doctor-card#doctor-petr .doctor-card__media::after,
-  .doctor-card#doctor-chlumsky .doctor-card__media::after,
-  .doctor-card#doctor-eugeny .doctor-card__media::after {
-    display: none;
-  }
-}
+/* All doctor cards look the same on phones (owner, 2026-10-01): the earlier
+   small-portrait variant for the three non-booking cards was removed. */
 
 /* Above the breakpoint the button is hidden by the [hidden] attribute the
    script sets; this keeps it hidden even if a stylesheet resets [hidden]. */

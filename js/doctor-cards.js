@@ -22,12 +22,15 @@
   var QUERY = '(max-width: 670px)';
 
   var LABELS = {
-    ru: { more: 'Подробнее', less: 'Свернуть' },
+    ru: { more: 'Подробнее о враче', less: 'Свернуть' },
     cs: { more: 'Více o lékaři', less: 'Skrýt' },
     en: { more: 'More about the doctor', less: 'Hide' },
-    uk: { more: 'Детальніше', less: 'Згорнути' },
+    uk: { more: 'Детальніше про лікаря', less: 'Згорнути' },
     pl: { more: 'Więcej o lekarzu', less: 'Zwiń' }
   };
+
+  // the author's card is not a doctor's
+  var AUTHOR_LABELS = { ru: 'Об авторе', cs: 'O autorovi', en: 'About the author', uk: 'Про автора', pl: 'O autorze' };
 
   function labels() {
     var lang = (document.documentElement.lang || 'en').slice(0, 2).toLowerCase();
@@ -42,6 +45,7 @@
 
     var mq = window.matchMedia(QUERY);
     var text = labels();
+    var authorMore = AUTHOR_LABELS[(document.documentElement.lang || 'en').slice(0, 2).toLowerCase()] || AUTHOR_LABELS.en;
 
     var items = cards.map(function (details) {
       var bio = details.querySelector('.doctor-card__bio');
@@ -56,7 +60,7 @@
       button.setAttribute('aria-expanded', 'false');
       details.appendChild(button);
 
-      var item = { details: details, button: button, open: false };
+      var item = { details: details, button: button, open: false, author: !!details.closest('#doctor-eugeny') };
 
       button.addEventListener('click', function () {
         setOpen(item, !item.open);
@@ -70,7 +74,7 @@
     function setOpen(item, open) {
       item.open = open;
       item.details.classList.toggle('is-open', open);
-      item.button.textContent = open ? text.less : text.more;
+      item.button.textContent = open ? text.less : (item.author ? authorMore : text.more);
       item.button.setAttribute('aria-expanded', String(open));
     }
 
