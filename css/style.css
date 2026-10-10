@@ -3224,3 +3224,8 @@ body.menu-open {
 /* doctor cards: photo at the top */
 @media (min-width: 671px) { .doctor-card { align-items: flex-start; } .doctor-card__media img { object-position: center top; } }
 .footer__author { margin: 6px 0 0; font-size: 13px; opacity: .75; }
+
+/* Online-booking button inside the "how to book" FAQ answer */
+.faq__book-btn {
+  margin: 12px 0 14px;
+}
