@@ -3185,6 +3185,17 @@ body.menu-open {
   color: var(--c-main, #113f36);
 }
 
+/* flex-basis above only drops the note onto its own line if the row wraps;
+   without it the note was squeezed in beside the price, off the phone screen */
+.services__link:has(.services__prep-note) {
+  flex-wrap: wrap;
+}
+
+.services__link:has(.services__prep-note) > div {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
 @media (max-width: 670px) {
   .services__prep-note {
     font-size: 13px;
