@@ -6,12 +6,19 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <title>MenCare clinic - О враче</title>
   <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3P17G2KE8C"></script>
   <script>
+    // Google Analytics starts only after a "yes" in the cookie card (js/cookie-consent.js).
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-3P17G2KE8C');
+    window.mcLoadGA = function () {
+      if (window.__mcGA) return; window.__mcGA = true;
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-3P17G2KE8C';
+      document.head.appendChild(s);
+      gtag('js', new Date());
+      gtag('config', 'G-3P17G2KE8C');
+    };
+    try { if (localStorage.getItem('mencare_cookie_consent') === 'accepted') window.mcLoadGA(); } catch (e) {}
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,6 +29,7 @@
   <script src="js/header-top.js" defer></script>
 </head>
 <body id="top" class="doctor-page-body">
+  <script src="js/cookie-consent.js"></script>
   <header class="site-header">
     <div class="topbar__reveal" id="topbar-reveal" aria-hidden="true">
       <div class="topbar__reveal-inner">

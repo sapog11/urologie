@@ -48,12 +48,19 @@
   <meta name="twitter:title" content="🩺 Русскоговорящий уролог в Праге — приватная урологическая амбулатория | MenCare">
   <meta name="twitter:description" content="Приватная урологическая амбулатория — только урология, без «всего понемногу». Русскоговорящий уролог MUDr. Kiryl Kuzmitski, заведующий MUDr. Jiří Kočárek Ph.D. — 30 лет в одной специальности. 📞 Телефонная консультация на русском — 1 000 Kč.">
   <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3P17G2KE8C"></script>
   <script>
+    // Google Analytics starts only after a "yes" in the cookie card (js/cookie-consent.js).
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-3P17G2KE8C');
+    window.mcLoadGA = function () {
+      if (window.__mcGA) return; window.__mcGA = true;
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-3P17G2KE8C';
+      document.head.appendChild(s);
+      gtag('js', new Date());
+      gtag('config', 'G-3P17G2KE8C');
+    };
+    try { if (localStorage.getItem('mencare_cookie_consent') === 'accepted') window.mcLoadGA(); } catch (e) {}
   </script>
 
   <!-- Structured Data - Organization -->
@@ -438,6 +445,7 @@
 </style>
 </head>
 <body id="top">
+  <script src="js/cookie-consent.js"></script>
   <div class="hero-wrap">
   <header class="site-header">
     <div class="topbar__reveal" id="topbar-reveal" aria-hidden="true">
@@ -1439,34 +1447,6 @@
     appointmentCloseButtons.forEach(btn => {
       btn.addEventListener('click', closeAppointmentModal);
     });
-  </script>
-  <!-- Cookie Consent Banner -->
-  <div class="cookie-banner" id="cookie-banner" aria-hidden="false">
-    <div class="cookie-banner__content">
-      <p class="cookie-banner__text">
-        🍪 Мы используем cookies для улучшения вашего опыта.
-      </p>
-    </div>
-    <div class="cookie-banner__actions">
-      <button class="cookie-banner__btn cookie-banner__btn--decline" onclick="cookieConsent(false)">Отклонить</button>
-      <button class="cookie-banner__btn cookie-banner__btn--accept" onclick="cookieConsent(true)">Согласен</button>
-    </div>
-  </div>
-
-  <script>
-    function cookieConsent(accepted) {
-      localStorage.setItem("mencare_cookie_consent", accepted ? "accepted" : "declined");
-      document.getElementById("cookie-banner").setAttribute("aria-hidden", "true");
-    }
-    function initCookieBanner() {
-      const consent = localStorage.getItem("mencare_cookie_consent");
-      if (consent) document.getElementById("cookie-banner").setAttribute("aria-hidden", "true");
-    }
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", initCookieBanner);
-    } else {
-      initCookieBanner();
-    }
   </script>
 
   <script src="js/hero-slider.js" defer></script>
