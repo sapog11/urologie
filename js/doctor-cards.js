@@ -26,11 +26,12 @@
     cs: { more: 'Více o lékaři', less: 'Skrýt' },
     en: { more: 'More about the doctor', less: 'Hide' },
     uk: { more: 'Детальніше про лікаря', less: 'Згорнути' },
-    pl: { more: 'Więcej o lekarzu', less: 'Zwiń' }
+    pl: { more: 'Więcej o lekarzu', less: 'Zwiń' },
+    de: { more: 'Mehr über den Arzt', less: 'Ausblenden' }
   };
 
   // the author's card is not a doctor's
-  var AUTHOR_LABELS = { ru: 'Об авторе', cs: 'O autorovi', en: 'About the author', uk: 'Про автора', pl: 'O autorze' };
+  var AUTHOR_LABELS = { ru: 'Об авторе', cs: 'O autorovi', en: 'About the author', uk: 'Про автора', pl: 'O autorze', de: 'Über den Autor' };
 
   function labels() {
     var lang = (document.documentElement.lang || 'en').slice(0, 2).toLowerCase();
@@ -122,7 +123,8 @@
     cs: { more: 'Číst více', less: 'Skrýt' },
     en: { more: 'Read more', less: 'Hide' },
     uk: { more: 'Читати докладніше', less: 'Згорнути' },
-    pl: { more: 'Czytaj więcej', less: 'Zwiń' }
+    pl: { more: 'Czytaj więcej', less: 'Zwiń' },
+    de: { more: 'Weiterlesen', less: 'Ausblenden' }
   };
 
   function init() {

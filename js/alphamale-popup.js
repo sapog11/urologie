@@ -15,30 +15,35 @@
 
   var T = {
     cs: { path: '', badge: 'Novinka pro muže', title: 'AlphaMale — síla, energie a vitalita',
-      text: 'Ženšen sibiřský, maca a ashwagandha se zinkem, selenem, hořčíkem, L-karnitinem a vitaminy D3, B6 a B12. Jedna kapsle ráno.',
+      text: 'Ženšen sibiřský se zinkem, selenem, hořčíkem, L-karnitinem a vitaminy D3, B6 a B12. Jedna kapsle ráno.',
       points: ['Zinek pro normální hladinu testosteronu', 'Hořčík a L-karnitin pro svaly a energii', 'Vitaminy B6, B12 a D3 proti únavě'],
       price: '119 Kč', buy: 'Koupit v e-shopu Marie Hanclové', close: 'Zavřít',
       note: 'Doplněk stravy. Při potížích s erekcí se objednejte k urologovi MenCare.' },
     en: { path: '/en', badge: 'New for men', title: 'AlphaMale — strength, energy and vitality',
-      text: 'Siberian ginseng, maca and ashwagandha with zinc, selenium, magnesium, L-carnitine and vitamins D3, B6 and B12. One capsule in the morning.',
+      text: 'Siberian ginseng with zinc, selenium, magnesium, L-carnitine and vitamins D3, B6 and B12. One capsule in the morning.',
       points: ['Zinc for normal testosterone levels', 'Magnesium and L-carnitine for muscles and energy', 'Vitamins B6, B12 and D3 against tiredness'],
       price: '119 CZK', buy: 'Buy in Marie Hanclová’s shop', close: 'Close',
       note: 'Food supplement. For erection problems, book a MenCare urologist.' },
     ru: { path: '/ru', badge: 'Новинка для мужчин', title: 'AlphaMale — сила, энергия и мужская выносливость',
-      text: 'Сибирский женьшень, мака и ашваганда с цинком, селеном, магнием, L-карнитином и витаминами D3, B6 и B12. Одна капсула утром.',
+      text: 'Сибирский женьшень с цинком, селеном, магнием, L-карнитином и витаминами D3, B6 и B12. Одна капсула утром.',
       points: ['Цинк — для нормального уровня тестостерона', 'Магний и L-карнитин — для мышц и энергии', 'Витамины B6, B12 и D3 — против усталости'],
       price: '119 Kč', buy: 'Купить в магазине Марии Ганцловой', close: 'Закрыть',
       note: 'БАД. При проблемах с эрекцией запишитесь к урологу MenCare.' },
     uk: { path: '/uk', badge: 'Новинка для чоловіків', title: 'AlphaMale — сила, енергія та чоловіча витривалість',
-      text: 'Сибірський женьшень, мака й ашваганда з цинком, селеном, магнієм, L-карнітином і вітамінами D3, B6 та B12. Одна капсула вранці.',
+      text: 'Сибірський женьшень з цинком, селеном, магнієм, L-карнітином і вітамінами D3, B6 та B12. Одна капсула вранці.',
       points: ['Цинк — для нормального рівня тестостерону', 'Магній і L-карнітин — для м’язів та енергії', 'Вітаміни B6, B12 і D3 — проти втоми'],
       price: '119 Kč', buy: 'Купити в магазині Марії Ганцлової', close: 'Закрити',
       note: 'Харчова добавка. При проблемах з ерекцією запишіться до уролога MenCare.' },
     pl: { path: '/en', badge: 'Nowość dla mężczyzn', title: 'AlphaMale — siła, energia i witalność',
-      text: 'Żeń-szeń syberyjski, maca i ashwagandha z cynkiem, selenem, magnezem, L-karnityną oraz witaminami D3, B6 i B12. Jedna kapsułka rano.',
+      text: 'Żeń-szeń syberyjski z cynkiem, selenem, magnezem, L-karnityną oraz witaminami D3, B6 i B12. Jedna kapsułka rano.',
       points: ['Cynk dla prawidłowego poziomu testosteronu', 'Magnez i L-karnityna dla mięśni i energii', 'Witaminy B6, B12 i D3 przeciw zmęczeniu'],
       price: '119 CZK', buy: 'Kup w sklepie Marie Hanclovej', close: 'Zamknij',
-      note: 'Suplement diety. Przy problemach z erekcją umów się do urologa MenCare.' }
+      note: 'Suplement diety. Przy problemach z erekcją umów się do urologa MenCare.' },
+    de: { path: '/de', badge: 'Neu für Männer', title: 'AlphaMale — Kraft, Energie und Vitalität',
+      text: 'Sibirischer Ginseng mit Zink, Selen, Magnesium, L-Carnitin und den Vitaminen D3, B6 und B12. Eine Kapsel am Morgen.',
+      points: ['Zink für einen normalen Testosteronspiegel', 'Magnesium und L-Carnitin für Muskeln und Energie', 'Vitamine B6, B12 und D3 gegen Müdigkeit'],
+      price: '119 Kč', buy: 'Im Shop von Maria Hanclová kaufen', close: 'Schließen',
+      note: 'Nahrungsergänzungsmittel. Bei Erektionsproblemen buchen Sie einen Termin beim Urologen von MenCare.' }
   };
 
   var lang = (document.documentElement.lang || 'cs').slice(0, 2);

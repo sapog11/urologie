@@ -15,9 +15,9 @@
   if (!box) return;
   var CLINIC = box.getAttribute('data-clinic');
   var page = (document.documentElement.lang || 'cs').slice(0, 2);
-  var lang = { cs: 'cs', en: 'en', ru: 'ru', uk: 'uk', pl: 'en' }[page] || 'cs';
-  var READ = { cs: 'Číst', en: 'Read', ru: 'Читать', uk: 'Читати', pl: 'Czytaj' }[page] || 'Číst';
-  var CLOSE = { cs: 'Zavřít', en: 'Close', ru: 'Закрыть', uk: 'Закрити', pl: 'Zamknij' }[page] || 'Zavřít';
+  var lang = { cs: 'cs', en: 'en', ru: 'ru', uk: 'uk', pl: 'en', de: 'en' }[page] || 'cs';
+  var READ = { cs: 'Číst', en: 'Read', ru: 'Читать', uk: 'Читати', pl: 'Czytaj', de: 'Lesen' }[page] || 'Číst';
+  var CLOSE = { cs: 'Zavřít', en: 'Close', ru: 'Закрыть', uk: 'Закрити', pl: 'Zamknij', de: 'Schließen' }[page] || 'Zavřít';
 
   var css =
     '.mcn{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 4px 18px;-webkit-overflow-scrolling:touch}' +

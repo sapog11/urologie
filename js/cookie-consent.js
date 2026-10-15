@@ -40,6 +40,12 @@
       no: 'Odwiedź stronę incognito', noHint: 'Tylko to, co niezbędne do działania strony. Żadnych statystyk.',
       note: 'Wybór zmienisz, czyszcząc dane strony w przeglądarce.'
     },
+    de: {
+      title: 'Cookies', q: 'Wie möchten Sie die Website besuchen?',
+      yes: 'Google-Statistik erlauben', yesHint: 'Google Analytics zählt den Besuch anonym — so wissen wir, was wir verbessern können.',
+      no: 'Inkognito besuchen', noHint: 'Nur das, was die Website zum Funktionieren braucht. Keine Statistik.',
+      note: 'Sie können die Wahl ändern, indem Sie die Website-Daten im Browser löschen.'
+    },
     en: {
       title: 'Cookies', q: 'How would you like to visit the site?',
       yes: 'Allow Google statistics', yesHint: 'Google Analytics counts the visit anonymously — it shows us what to improve.',

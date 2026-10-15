@@ -27,7 +27,8 @@
     uk: { locale: 'uk-UA', today: 'сьогодні', tomorrow: 'завтра', at: 'о' },
     cs: { locale: 'cs-CZ', today: 'dnes', tomorrow: 'zítra', at: 'v' },
     en: { locale: 'en-GB', today: 'today', tomorrow: 'tomorrow', at: 'at' },
-    pl: { locale: 'pl-PL', today: 'dziś', tomorrow: 'jutro', at: 'o' }
+    pl: { locale: 'pl-PL', today: 'dziś', tomorrow: 'jutro', at: 'o' },
+    de: { locale: 'de-DE', today: 'heute', tomorrow: 'morgen', at: 'um' }
   };
 
   document.addEventListener('DOMContentLoaded', function () {
@@ -36,7 +37,8 @@
 
     var lang = (document.documentElement.lang || 'ru').slice(0, 2);
     var cfg = LOCALES[lang] || LOCALES.ru;
-    var widgetLang = lang === 'uk' ? 'uk' : (LOCALES[lang] ? lang : 'en');
+    // The German page is for Russian speakers from Germany: the form opens in Russian.
+    var widgetLang = lang === 'uk' ? 'uk' : lang === 'de' ? 'ru' : (LOCALES[lang] ? lang : 'en');
 
     Array.prototype.forEach.call(boxes, function (box) {
       var valueEl = box.querySelector('[data-next-slot-value]');

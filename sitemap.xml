@@ -48,4 +48,15 @@
       <image:title>MenCare clinic - Уролог в Празі</image:title>
     </image:image>
   </url>
+  <!-- German - for Russian-speaking patients from Germany -->
+  <url>
+    <loc>https://mencare.cz/de/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://mencare.cz/green-logo.svg</image:loc>
+      <image:title>MenCare clinic - Russischsprachiger Urologe in Prag</image:title>
+    </image:image>
+  </url>
 </urlset>

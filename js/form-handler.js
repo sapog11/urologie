@@ -215,6 +215,7 @@ const FormHandler = (() => {
       en: 'Sending...',
       cs: 'Odesílání...',
       uk: 'Надсилання...',
+      de: 'Wird gesendet...',
     };
     return texts[lang] || 'Sending...';
   }
