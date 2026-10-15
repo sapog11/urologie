@@ -118,14 +118,14 @@
         '<div class="mcc-head"><span class="mcc-cookie" aria-hidden="true">🍪</span>' +
         '<span class="mcc-title" id="mcc-title">' + t.title + '</span></div>' +
         '<p class="mcc-q">' + t.q + '</p>' +
-        '<button type="button" class="mcc-opt mcc-yes" data-v="accepted">' +
-          '<span class="mcc-emo" aria-hidden="true">😄</span>' +
-          '<span class="mcc-txt"><b>' + t.yes + '</b><span>' + t.yesHint + '</span></span>' +
-          '<span class="mcc-box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 20.5s-7.5-4.4-9.5-9C1 7.9 3.3 4.5 6.8 4.5c2.2 0 3.7 1.3 5.2 3 1.5-1.7 3-3 5.2-3 3.5 0 5.8 3.4 4.3 7-2 4.6-9.5 9-9.5 9Z"/></svg></span></button>' +
         '<button type="button" class="mcc-opt mcc-no" data-v="declined">' +
           '<span class="mcc-emo" aria-hidden="true">🙁</span>' +
           '<span class="mcc-txt"><b>' + t.no + '</b><span>' + t.noHint + '</span></span>' +
           '<span class="mcc-box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M11.2 19.9C8.6 18.2 4 14.8 2.5 11.5 1 7.9 3.3 4.5 6.8 4.5c2 0 3.4 1 4.6 2.5l-1.2 3.2 2.2 2.4-1.6 3.1z"/><path d="M13.6 6.6c1.3-1.2 2.4-2.1 3.6-2.1 3.5 0 5.8 3.4 4.3 7-1.5 3.4-6.2 6.9-8.8 8.6l.6-3.6 1.7-3.2-2.3-2.5z"/></svg></span></button>' +
+        '<button type="button" class="mcc-opt mcc-yes" data-v="accepted">' +
+          '<span class="mcc-emo" aria-hidden="true">😄</span>' +
+          '<span class="mcc-txt"><b>' + t.yes + '</b><span>' + t.yesHint + '</span></span>' +
+          '<span class="mcc-box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 20.5s-7.5-4.4-9.5-9C1 7.9 3.3 4.5 6.8 4.5c2.2 0 3.7 1.3 5.2 3 1.5-1.7 3-3 5.2-3 3.5 0 5.8 3.4 4.3 7-2 4.6-9.5 9-9.5 9Z"/></svg></span></button>' +
         '<p class="mcc-note">' + t.note + '</p>' +
       '</div>';
     document.body.appendChild(root);
