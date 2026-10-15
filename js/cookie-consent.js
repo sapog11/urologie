@@ -68,19 +68,28 @@
     'background:rgba(255,255,255,.10);transition:transform .15s,background .2s,border-color .2s}',
     '.mcc-opt:hover{transform:translateY(-1px);background:rgba(255,255,255,.17)}',
     '.mcc-opt:focus-visible{outline:2px solid #fff;outline-offset:2px}',
-    '.mcc-yes{background:linear-gradient(135deg,rgba(52,211,153,.38),rgba(16,185,129,.18));border-color:rgba(110,231,183,.7);',
-    'box-shadow:0 10px 30px -12px rgba(16,185,129,.8)}',
-    '.mcc-yes:hover{background:linear-gradient(135deg,rgba(52,211,153,.5),rgba(16,185,129,.26))}',
+    /* yes: light-blue glass, an empty heart beating until tapped; no: orange glass, grey broken heart */
+    '.mcc-yes{background:linear-gradient(135deg,rgba(186,228,255,.42),rgba(125,200,245,.16));border-color:rgba(160,215,255,.85);',
+    'box-shadow:0 12px 32px -12px rgba(56,160,240,.8),inset 0 1px 0 rgba(255,255,255,.4)}',
+    '.mcc-yes:hover{background:linear-gradient(135deg,rgba(186,228,255,.55),rgba(125,200,245,.24))}',
+    '.mcc-no{background:linear-gradient(135deg,rgba(253,186,116,.34),rgba(251,146,60,.14));border-color:rgba(251,160,90,.6);opacity:.86}',
+    '.mcc-no:hover{opacity:1;background:linear-gradient(135deg,rgba(253,186,116,.42),rgba(251,146,60,.2))}',
     '.mcc-emo{font-size:34px;line-height:1;flex-shrink:0;display:inline-block;transition:transform .3s}',
     '.mcc-yes .mcc-emo{animation:mcc-bob 1.8s ease-in-out infinite}',
+    '.mcc-no .mcc-emo{filter:grayscale(.35)}',
     '.mcc-txt b{display:block;font-size:15.5px;margin-bottom:2px}',
     '.mcc-txt span{display:block;font-size:12.5px;line-height:1.4;opacity:.85}',
-    '.mcc-box{margin-left:auto;flex-shrink:0;width:30px;height:30px;border-radius:10px;display:flex;align-items:center;justify-content:center;',
-    'border:2px solid rgba(255,255,255,.75);font-size:18px;font-weight:900;color:transparent;transition:all .2s}',
-    '.mcc-yes .mcc-box{border-color:#6ee7b7;background:rgba(16,185,129,.25);animation:mcc-buzz 1.6s ease-in-out infinite}',
-    '.mcc-no .mcc-box{border-color:rgba(255,255,255,.45)}',
-    '.mcc-opt.on .mcc-box{color:#fff;background:#10b981;border-color:#10b981;animation:mcc-pop .4s ease-out}',
-    '.mcc-no.on .mcc-box{background:rgba(255,255,255,.35);border-color:rgba(255,255,255,.6)}',
+    '.mcc-box{margin-left:auto;flex-shrink:0;width:38px;height:38px;display:flex;align-items:center;justify-content:center;transition:transform .25s}',
+    '.mcc-box svg{width:32px;height:32px;overflow:visible}',
+    '.mcc-box path{fill:transparent;stroke-width:2;stroke-linejoin:round;stroke-linecap:round;transition:fill .25s}',
+    '.mcc-yes .mcc-box{animation:mcc-beat 1.3s ease-in-out infinite}',
+    '.mcc-yes .mcc-box path{stroke:#fb7185}',
+    '.mcc-yes:hover .mcc-box{animation-duration:.6s}',
+    '.mcc-no .mcc-box path{stroke:#d1d5db}',
+    '.mcc-yes.on .mcc-box{animation:mcc-pop .5s ease-out both}',
+    '.mcc-yes.on .mcc-box path{fill:#f43f5e;stroke:#f43f5e}',
+    '.mcc-no.on .mcc-box{transform:translateY(2px) rotate(-10deg)}',
+    '.mcc-no.on .mcc-box path{fill:#9ca3af}',
     '.mcc-yes.on .mcc-emo{animation:mcc-jump .6s ease-out}',
     '.mcc-no.on .mcc-emo{transform:rotate(-12deg) translateY(3px)}',
     '.mcc-note{font-size:11.5px;opacity:.7;text-align:center;margin:6px 0 0}',
@@ -88,9 +97,8 @@
     '@keyframes mcc-out{to{opacity:0;visibility:hidden}}',
     '@keyframes mcc-roll{0%,80%,100%{transform:rotate(0)}88%{transform:rotate(-18deg)}94%{transform:rotate(12deg)}}',
     '@keyframes mcc-bob{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-3px) rotate(-6deg)}}',
-    '@keyframes mcc-buzz{0%,60%,100%{transform:translate(0) rotate(0) scale(1)}64%{transform:translate(-2px,0) rotate(-8deg) scale(1.08)}',
-    '68%{transform:translate(2px,0) rotate(8deg) scale(1.08)}72%{transform:translate(-2px,0) rotate(-6deg)}76%{transform:translate(2px,0) rotate(5deg)}80%{transform:translate(0) rotate(0)}}',
-    '@keyframes mcc-pop{0%{transform:scale(.5)}60%{transform:scale(1.3)}100%{transform:scale(1)}}',
+    '@keyframes mcc-pop{0%{transform:scale(.8)}50%{transform:scale(1.45) rotate(-8deg)}100%{transform:scale(1.15)}}',
+    '@keyframes mcc-beat{0%,40%,100%{transform:scale(1) rotate(0)}10%{transform:scale(1.2) rotate(-6deg)}20%{transform:scale(.95) rotate(4deg)}30%{transform:scale(1.14) rotate(-3deg)}}',
     '@keyframes mcc-jump{0%{transform:scale(1)}30%{transform:translateY(-10px) scale(1.25) rotate(-10deg)}60%{transform:translateY(0) scale(1.1) rotate(8deg)}100%{transform:scale(1)}}',
     '@media (prefers-reduced-motion:reduce){.mcc *,.mcc{animation:none!important;transition:none!important}}'
   ].join('');
@@ -113,11 +121,11 @@
         '<button type="button" class="mcc-opt mcc-yes" data-v="accepted">' +
           '<span class="mcc-emo" aria-hidden="true">😄</span>' +
           '<span class="mcc-txt"><b>' + t.yes + '</b><span>' + t.yesHint + '</span></span>' +
-          '<span class="mcc-box" aria-hidden="true">✓</span></button>' +
+          '<span class="mcc-box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 20.5s-7.5-4.4-9.5-9C1 7.9 3.3 4.5 6.8 4.5c2.2 0 3.7 1.3 5.2 3 1.5-1.7 3-3 5.2-3 3.5 0 5.8 3.4 4.3 7-2 4.6-9.5 9-9.5 9Z"/></svg></span></button>' +
         '<button type="button" class="mcc-opt mcc-no" data-v="declined">' +
           '<span class="mcc-emo" aria-hidden="true">🙁</span>' +
           '<span class="mcc-txt"><b>' + t.no + '</b><span>' + t.noHint + '</span></span>' +
-          '<span class="mcc-box" aria-hidden="true">✓</span></button>' +
+          '<span class="mcc-box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M11.2 19.9C8.6 18.2 4 14.8 2.5 11.5 1 7.9 3.3 4.5 6.8 4.5c2 0 3.4 1 4.6 2.5l-1.2 3.2 2.2 2.4-1.6 3.1z"/><path d="M13.6 6.6c1.3-1.2 2.4-2.1 3.6-2.1 3.5 0 5.8 3.4 4.3 7-1.5 3.4-6.2 6.9-8.8 8.6l.6-3.6 1.7-3.2-2.3-2.5z"/></svg></span></button>' +
         '<p class="mcc-note">' + t.note + '</p>' +
       '</div>';
     document.body.appendChild(root);
